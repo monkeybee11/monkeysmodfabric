@@ -1,0 +1,13 @@
+{
+    "item.monkeysmod.banana": "banana",
+    "item.monkeysmod.peeled_banana": "peeled banana",
+    "item.monkeysmod.banana_peel": "banana peel",
+    "item.monkeysmod.banana_picker": "banana picker",
+    "block.monkeysmod.banana_bunch": "banana bunch",
+    "entity.monkeysmod.banana_monster": "banana",
+    "entity.monkeysmod.apple_monster": "apple",
+    "item.monkeysmod.william_tell_apple": "william tell apple",
+    "item.monkeysmod.banana_spawn_egg": "banana spawn egg",
+    "item.monkeysmod.apple_spawn_egg": "apple spawn egg",
+    "itemgroup.monkeysmod_itemgroup": "monkeys mod"
+}
