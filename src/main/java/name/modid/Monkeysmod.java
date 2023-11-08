@@ -17,6 +17,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import name.modid.block.Bananabunch;
 import name.modid.items.Banana;
+import name.modid.items.Frozen_apple_item;
 import name.modid.items.Peeled_banana;
 import name.modid.items.William_tell_apple;
 import name.modid.monsters.ModEntities;
@@ -39,6 +40,8 @@ public class Monkeysmod implements ModInitializer {
 	public static final Item BANANA_SPAWN_EGG = new SpawnEggItem(ModEntities.BANANAMONSTER, 16700985, 16509870, new FabricItemSettings());
 	public static final Item APPLE_SPAWN_EGG = new SpawnEggItem(ModEntities.APPLEMONSTER, 03163, 00222, new FabricItemSettings());
 	public static final William_tell_apple WILLIAM_TELL_APPLE = new William_tell_apple(new  FabricItemSettings());
+	public static final Frozen_apple_item FROZEN_APPLE_ITEM = new Frozen_apple_item(new FabricItemSettings(), 0, 0);
+	
 
 
 
@@ -52,6 +55,7 @@ public class Monkeysmod implements ModInitializer {
 		entries.add(WILLIAM_TELL_APPLE);
 		entries.add(BANANA_SPAWN_EGG);
 		entries.add(APPLE_SPAWN_EGG);
+		entries.add(FROZEN_APPLE_ITEM);
 	
 	
 	}).build();
@@ -82,6 +86,7 @@ public class Monkeysmod implements ModInitializer {
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "william_tell_apple"), WILLIAM_TELL_APPLE);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "banana_spawn_egg"),BANANA_SPAWN_EGG);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "apple_spawn_egg"), APPLE_SPAWN_EGG);
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "frozen_apple_item"),FROZEN_APPLE_ITEM);
 
 
 		

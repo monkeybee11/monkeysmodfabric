@@ -37,6 +37,8 @@ public class AppleEntity extends HostileEntity {
 
         if (source.getName().equals("arrow")) {
             this.dropItem(Monkeysmod.WILLIAM_TELL_APPLE);
+        } else if (source.getName().equals("freeze")) {
+            this.dropItem(Monkeysmod.FROZEN_APPLE_ITEM);
         } else {
             this.dropItem(Items.APPLE);
         }
