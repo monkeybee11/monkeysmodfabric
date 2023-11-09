@@ -1,6 +1,7 @@
 package name.modid.monsters;
 
 import name.modid.monsters.custom.BananaEntity;
+import name.modid.monsters.custom.PineappleEntity;
 import name.modid.monsters.custom.AppleEntity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
@@ -14,10 +15,17 @@ public class ModEntities {
         public static final EntityType<BananaEntity> BANANAMONSTER = Registry.register(Registries.ENTITY_TYPE,
                 new Identifier("monkeysmod", "banana_monster"),
                 FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, BananaEntity::new)
-                        .dimensions(EntityDimensions.fixed(1f, 2f)).build());
+                        .dimensions(EntityDimensions.fixed(0.8f, 1.4f)).build());
 
         public static final EntityType<AppleEntity> APPLEMONSTER = Registry.register(Registries.ENTITY_TYPE,
                 new Identifier("monkeysmod", "apple_monster"),
                 FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, AppleEntity::new)
-                        .dimensions(EntityDimensions.fixed(1f, 2f)).build());
+                        .dimensions(EntityDimensions.fixed(0.8f, 1.4f)).build());
+
+        public static final EntityType<PineappleEntity> PINEAPPLEMONSTER = Registry.register(Registries.ENTITY_TYPE,
+                new Identifier("monkeysmod", "pineapple_monster"),
+                FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, PineappleEntity::new)
+                        .dimensions(EntityDimensions.fixed(0.8f, 1.5f)).build());
+
+
 }

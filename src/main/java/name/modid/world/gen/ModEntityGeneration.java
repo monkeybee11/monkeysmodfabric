@@ -23,6 +23,11 @@ public class ModEntityGeneration {
         BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.DARK_FOREST), SpawnGroup.MONSTER, ModEntities.APPLEMONSTER, 35, 1, 5);
         SpawnRestriction.register(ModEntities.APPLEMONSTER, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HostileEntity::canSpawnInDark);
 
+        //pineapple
+        BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.BEACH), SpawnGroup.MONSTER, ModEntities.PINEAPPLEMONSTER, 35, 1, 5);
+        BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.JUNGLE), SpawnGroup.MONSTER, ModEntities.PINEAPPLEMONSTER, 35, 1, 5);
+        SpawnRestriction.register(ModEntities.PINEAPPLEMONSTER, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HostileEntity::canSpawnInDark);
+
 
     }
     

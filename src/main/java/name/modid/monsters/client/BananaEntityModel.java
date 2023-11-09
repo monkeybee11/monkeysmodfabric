@@ -15,6 +15,7 @@ import net.minecraft.client.util.math.MatrixStack;
 public class BananaEntityModel extends EntityModel<BananaEntity> {
 	private final ModelPart bb_main;
 	public BananaEntityModel(ModelPart root) {
+		
 		this.bb_main = root.getChild("bb_main");
 	}
 	public static TexturedModelData getTexturedModelData() {

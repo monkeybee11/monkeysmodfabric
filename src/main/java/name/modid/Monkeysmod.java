@@ -19,10 +19,14 @@ import name.modid.block.Bananabunch;
 import name.modid.items.Banana;
 import name.modid.items.Frozen_apple_item;
 import name.modid.items.Peeled_banana;
+import name.modid.items.Pineapple;
+import name.modid.items.Pineapple_cored;
+import name.modid.items.Pineapple_ring;
 import name.modid.items.William_tell_apple;
 import name.modid.monsters.ModEntities;
 import name.modid.monsters.custom.AppleEntity;
 import name.modid.monsters.custom.BananaEntity;
+import name.modid.monsters.custom.PineappleEntity;
 import name.modid.world.gen.ModEntityGeneration;
 
 public class Monkeysmod implements ModInitializer {
@@ -39,8 +43,13 @@ public class Monkeysmod implements ModInitializer {
 	public static final Bananabunch BANANA_BUNCH = new Bananabunch(FabricBlockSettings.create().strength(1.0f));
 	public static final Item BANANA_SPAWN_EGG = new SpawnEggItem(ModEntities.BANANAMONSTER, 16700985, 16509870, new FabricItemSettings());
 	public static final Item APPLE_SPAWN_EGG = new SpawnEggItem(ModEntities.APPLEMONSTER, 03163, 00222, new FabricItemSettings());
+	public static final Item PINEAPPLE_SPAWN_EGG = new SpawnEggItem(ModEntities.PINEAPPLEMONSTER, 29100100, 2910066, new FabricItemSettings());
 	public static final William_tell_apple WILLIAM_TELL_APPLE = new William_tell_apple(new  FabricItemSettings());
 	public static final Frozen_apple_item FROZEN_APPLE_ITEM = new Frozen_apple_item(new FabricItemSettings(), 0, 0);
+	public static final Pineapple PINEAPPLE = new Pineapple(new FabricItemSettings());
+	public static final Item PINEAPPLE_STEM = new Item(new FabricItemSettings());
+	public static final Pineapple_ring PINEAPPLE_RING = new Pineapple_ring(new FabricItemSettings());
+	public static final Pineapple_cored PINEAPPLE_CORED = new Pineapple_cored(new FabricItemSettings());
 	
 
 
@@ -56,6 +65,11 @@ public class Monkeysmod implements ModInitializer {
 		entries.add(BANANA_SPAWN_EGG);
 		entries.add(APPLE_SPAWN_EGG);
 		entries.add(FROZEN_APPLE_ITEM);
+		entries.add(PINEAPPLE_SPAWN_EGG);
+		entries.add(PINEAPPLE);
+		entries.add(PINEAPPLE_STEM);
+		entries.add(PINEAPPLE_RING);
+		entries.add(PINEAPPLE_CORED);
 	
 	
 	}).build();
@@ -79,14 +93,21 @@ public class Monkeysmod implements ModInitializer {
 		Registry.register(Registries.BLOCK, new Identifier("monkeysmod", "banana_bunch"), BANANA_BUNCH);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "banana_bunch"), new BlockItem(BANANA_BUNCH, new FabricItemSettings()));
 		CompostingChanceRegistry.INSTANCE.add(BANANA_PEEL, (float) 20);
+		CompostingChanceRegistry.INSTANCE.add(PINEAPPLE_STEM, (float) 20);
 		FabricDefaultAttributeRegistry.register(ModEntities.BANANAMONSTER, BananaEntity.createBananaAttributeBuilder());
 		FabricDefaultAttributeRegistry.register(ModEntities.APPLEMONSTER, AppleEntity.createAppleAttributeBuilder());
+		FabricDefaultAttributeRegistry.register(ModEntities.PINEAPPLEMONSTER, PineappleEntity.createPineappleAttributeBuilder());
 		ModCustomTrades.registerCustomTrades();
 		ModEntityGeneration.addSpawns();
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "william_tell_apple"), WILLIAM_TELL_APPLE);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "banana_spawn_egg"),BANANA_SPAWN_EGG);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "apple_spawn_egg"), APPLE_SPAWN_EGG);
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "pineapple_spawn_egg"), PINEAPPLE_SPAWN_EGG);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "frozen_apple_item"),FROZEN_APPLE_ITEM);
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "pineapple"), PINEAPPLE);
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "pineapple_stem"), PINEAPPLE_STEM);
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "pineapple_ring"), PINEAPPLE_RING);
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "pineapple_cored"), PINEAPPLE_CORED);
 
 
 		

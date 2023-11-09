@@ -6,9 +6,12 @@
     "block.monkeysmod.banana_bunch": "banana bunch",
     "entity.monkeysmod.banana_monster": "banana",
     "entity.monkeysmod.apple_monster": "apple",
+    "entity.monkeysmod.pineapple_monster": "pineapple",
     "item.monkeysmod.william_tell_apple": "william tell apple",
     "item.monkeysmod.banana_spawn_egg": "banana spawn egg",
     "item.monkeysmod.apple_spawn_egg": "apple spawn egg",
+    "item.monkeysmod.pineapple_spawn_egg": "pineapple spawn egg",
     "itemgroup.monkeysmod_itemgroup": "monkeys mod",
     "item.monkeysmod.frozen_apple_item": "frozen apple"
+    
 }
