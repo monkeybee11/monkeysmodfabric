@@ -19,9 +19,7 @@ public class Banana extends Item {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
         ItemStack banana = player.getStackInHand(hand);
         banana.decrement(1);
-        ItemStack peeled_banana = new ItemStack(Monkeysmod.PEELED_BANANA);
-        player.giveItemStack(peeled_banana);
-        peeled_banana.increment(1);
+        player.getInventory().offerOrDrop(new ItemStack(Monkeysmod.PEELED_BANANA));
         return new TypedActionResult<ItemStack>(ActionResult.PASS, player.getStackInHand(hand));
 
     }

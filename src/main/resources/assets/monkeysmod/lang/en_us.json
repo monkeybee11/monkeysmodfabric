@@ -12,6 +12,14 @@
     "item.monkeysmod.apple_spawn_egg": "apple spawn egg",
     "item.monkeysmod.pineapple_spawn_egg": "pineapple spawn egg",
     "itemgroup.monkeysmod_itemgroup": "monkeys mod",
-    "item.monkeysmod.frozen_apple_item": "frozen apple"
+    "item.monkeysmod.frozen_apple_item": "frozen apple",
+    "item.monkeysmod.pineapple": "pineapple",
+    "item.monkeysmod.pineapple_stem": "pineapple stem",
+    "item.monkeysmod.pineapple_ring": "pineapple ring",
+    "item.monkeysmod.pineapple_cored": "cored pineapple",
+    "entity.monkeysmod.coconut_monster": "coconut",
+    "item.monkeysmod.coconut_spawn_egg": "coconut spawn egg",
+    "item.monkeysmod.coconut_shell": "coconut shell",
+    "item.monkeysmod.coconut_food": "cracked coconut"
     
 }

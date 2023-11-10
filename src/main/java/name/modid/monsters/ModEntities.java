@@ -1,6 +1,7 @@
 package name.modid.monsters;
 
 import name.modid.monsters.custom.BananaEntity;
+import name.modid.monsters.custom.CoconutEntity;
 import name.modid.monsters.custom.PineappleEntity;
 import name.modid.monsters.custom.AppleEntity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
@@ -26,6 +27,11 @@ public class ModEntities {
                 new Identifier("monkeysmod", "pineapple_monster"),
                 FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, PineappleEntity::new)
                         .dimensions(EntityDimensions.fixed(0.8f, 1.5f)).build());
+
+        public static final EntityType<CoconutEntity> COOCNUTMONSTER = Registry.register(Registries.ENTITY_TYPE,
+                new Identifier("monkeysmod", "coconut_monster"),
+                FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, CoconutEntity::new)
+                        .dimensions(EntityDimensions.fixed(1, 1)).build());
 
 
 }

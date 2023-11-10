@@ -17,6 +17,8 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import name.modid.block.Bananabunch;
 import name.modid.items.Banana;
+import name.modid.items.Coconut_food;
+import name.modid.items.Coconut_shell;
 import name.modid.items.Frozen_apple_item;
 import name.modid.items.Peeled_banana;
 import name.modid.items.Pineapple;
@@ -26,6 +28,7 @@ import name.modid.items.William_tell_apple;
 import name.modid.monsters.ModEntities;
 import name.modid.monsters.custom.AppleEntity;
 import name.modid.monsters.custom.BananaEntity;
+import name.modid.monsters.custom.CoconutEntity;
 import name.modid.monsters.custom.PineappleEntity;
 import name.modid.world.gen.ModEntityGeneration;
 
@@ -44,12 +47,15 @@ public class Monkeysmod implements ModInitializer {
 	public static final Item BANANA_SPAWN_EGG = new SpawnEggItem(ModEntities.BANANAMONSTER, 16700985, 16509870, new FabricItemSettings());
 	public static final Item APPLE_SPAWN_EGG = new SpawnEggItem(ModEntities.APPLEMONSTER, 03163, 00222, new FabricItemSettings());
 	public static final Item PINEAPPLE_SPAWN_EGG = new SpawnEggItem(ModEntities.PINEAPPLEMONSTER, 29100100, 2910066, new FabricItemSettings());
+	public static final Item COCONUT_SPAWN_EGG = new SpawnEggItem(ModEntities.COOCNUTMONSTER, 124423421 ,423241,new FabricItemSettings());
 	public static final William_tell_apple WILLIAM_TELL_APPLE = new William_tell_apple(new  FabricItemSettings());
 	public static final Frozen_apple_item FROZEN_APPLE_ITEM = new Frozen_apple_item(new FabricItemSettings(), 0, 0);
 	public static final Pineapple PINEAPPLE = new Pineapple(new FabricItemSettings());
 	public static final Item PINEAPPLE_STEM = new Item(new FabricItemSettings());
 	public static final Pineapple_ring PINEAPPLE_RING = new Pineapple_ring(new FabricItemSettings());
 	public static final Pineapple_cored PINEAPPLE_CORED = new Pineapple_cored(new FabricItemSettings());
+	public static final Coconut_shell COCONUT_SHELL = new Coconut_shell(new FabricItemSettings(), 0, 0);
+	public static final Coconut_food COCONUT_FOOD = new Coconut_food(new FabricItemSettings());
 	
 
 
@@ -70,6 +76,9 @@ public class Monkeysmod implements ModInitializer {
 		entries.add(PINEAPPLE_STEM);
 		entries.add(PINEAPPLE_RING);
 		entries.add(PINEAPPLE_CORED);
+		entries.add(COCONUT_SPAWN_EGG);
+		entries.add(COCONUT_SHELL);
+		entries.add(COCONUT_FOOD);
 	
 	
 	}).build();
@@ -97,17 +106,22 @@ public class Monkeysmod implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.BANANAMONSTER, BananaEntity.createBananaAttributeBuilder());
 		FabricDefaultAttributeRegistry.register(ModEntities.APPLEMONSTER, AppleEntity.createAppleAttributeBuilder());
 		FabricDefaultAttributeRegistry.register(ModEntities.PINEAPPLEMONSTER, PineappleEntity.createPineappleAttributeBuilder());
+		FabricDefaultAttributeRegistry.register(ModEntities.COOCNUTMONSTER, CoconutEntity.createCoconutAttributeBuilder());
 		ModCustomTrades.registerCustomTrades();
 		ModEntityGeneration.addSpawns();
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "william_tell_apple"), WILLIAM_TELL_APPLE);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "banana_spawn_egg"),BANANA_SPAWN_EGG);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "apple_spawn_egg"), APPLE_SPAWN_EGG);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "pineapple_spawn_egg"), PINEAPPLE_SPAWN_EGG);
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "coconut_spawn_egg"), COCONUT_SPAWN_EGG);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "frozen_apple_item"),FROZEN_APPLE_ITEM);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "pineapple"), PINEAPPLE);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "pineapple_stem"), PINEAPPLE_STEM);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "pineapple_ring"), PINEAPPLE_RING);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "pineapple_cored"), PINEAPPLE_CORED);
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "coconut_shell"), COCONUT_SHELL);
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "coconut_food"), COCONUT_FOOD);
+
 
 
 		

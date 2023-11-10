@@ -16,6 +16,10 @@
     "item.monkeysmod.pineapple": "pineapple",
     "item.monkeysmod.pineapple_stem": "pineapple stem",
     "item.monkeysmod.pineapple_ring": "pineapple ring",
-    "item.monkeysmod.pineapple_cored": "cored pineapple"
+    "item.monkeysmod.pineapple_cored": "cored pineapple",
+    "entity.monkeysmod.coconut_monster": "coconut",
+    "item.monkeysmod.coconut_spawn_egg": "coconut spawn egg",
+    "item.monkeysmod.coconut_shell": "coconut shell",
+    "item.monkeysmod.coconut_food": "cracked coconut"
     
 }
