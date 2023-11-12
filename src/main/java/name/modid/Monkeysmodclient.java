@@ -7,6 +7,8 @@ import name.modid.monsters.client.BananaEntityModel;
 import name.modid.monsters.client.BananaEntityRenderer;
 import name.modid.monsters.client.CoconutEntityModel;
 import name.modid.monsters.client.CoconutEntityRenderer;
+import name.modid.monsters.client.MeatEntityModel;
+import name.modid.monsters.client.MeatEntityRenderer;
 import name.modid.monsters.client.ModModelLayer;
 import name.modid.monsters.client.PineappleEntityModel;
 import name.modid.monsters.client.PineappleEntityRenderer;
@@ -23,6 +25,7 @@ public class Monkeysmodclient implements ClientModInitializer {
     public static final EntityModelLayer MODEL_APPLE_LAYER = new EntityModelLayer(new Identifier("monkeysmod", "apple_monster"), "main");
     public static final EntityModelLayer MODEL_PINEAPPLE_LAYER = new EntityModelLayer(new Identifier("monkeysmod", "pineapple_monster"), "main");
     public static final EntityModelLayer MODEL_COCONUT_LAYER = new EntityModelLayer(new Identifier("monkeysmod", "coconut_monster"), "main");
+    public static final EntityModelLayer MODEL_MEAT_LAYER = new EntityModelLayer(new Identifier("monkeysmod", "meat_monster"), "main");
 
     @Override
     public void onInitializeClient() {
@@ -39,6 +42,9 @@ public class Monkeysmodclient implements ClientModInitializer {
 
         EntityRendererRegistry.register(ModEntities.COOCNUTMONSTER, CoconutEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayer.COCONUTMONSTER, CoconutEntityModel::getTexturedModelData);
+
+        EntityRendererRegistry.register(ModEntities.MEATMONSTER, MeatEntityRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayer.MEATMONSTER, MeatEntityModel::getTexturedModelData);
 
 
 

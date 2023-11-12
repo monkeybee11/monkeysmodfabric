@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+      "all": "monkeysmod:block/cheese_block"
+    }
+  }

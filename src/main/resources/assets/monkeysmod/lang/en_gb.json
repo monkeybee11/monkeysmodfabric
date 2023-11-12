@@ -20,6 +20,7 @@
     "entity.monkeysmod.coconut_monster": "coconut",
     "item.monkeysmod.coconut_spawn_egg": "coconut spawn egg",
     "item.monkeysmod.coconut_shell": "coconut shell",
-    "item.monkeysmod.coconut_food": "cracked coconut"
+    "item.monkeysmod.coconut_food": "cracked coconut",
+    "block.monkeysmod.cheese_block": "block o' cheese"
     
 }

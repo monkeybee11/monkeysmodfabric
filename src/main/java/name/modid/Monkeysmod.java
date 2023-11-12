@@ -16,26 +16,31 @@ import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import name.modid.block.Bananabunch;
+import name.modid.block.Cheese_block;
+import name.modid.block.Milk_cauldron;
+import name.modid.event.Cheese_cauldron_event;
 import name.modid.items.Banana;
 import name.modid.items.Coconut_food;
 import name.modid.items.Coconut_shell;
+import name.modid.items.Cooked_meat;
 import name.modid.items.Frozen_apple_item;
 import name.modid.items.Peeled_banana;
 import name.modid.items.Pineapple;
 import name.modid.items.Pineapple_cored;
 import name.modid.items.Pineapple_ring;
+import name.modid.items.Raw_meat;
 import name.modid.items.William_tell_apple;
+import name.modid.items.Cheese_slice;
+import name.modid.items.Grated_cheese;
 import name.modid.monsters.ModEntities;
 import name.modid.monsters.custom.AppleEntity;
 import name.modid.monsters.custom.BananaEntity;
 import name.modid.monsters.custom.CoconutEntity;
+import name.modid.monsters.custom.MeatEntity;
 import name.modid.monsters.custom.PineappleEntity;
 import name.modid.world.gen.ModEntityGeneration;
 
 public class Monkeysmod implements ModInitializer {
-	// This logger is used to write text to the console and the log file.
-	// It is considered best practice to use your mod id as the logger's name.
-	// That way, it's clear which mod wrote info, warnings, and errors.
 
 
 
@@ -44,10 +49,12 @@ public class Monkeysmod implements ModInitializer {
 	public static final Item BANANA_PEEL = new Item(new FabricItemSettings());
 	public static final Item BANANA_PICKER = new Item(new FabricItemSettings());
 	public static final Bananabunch BANANA_BUNCH = new Bananabunch(FabricBlockSettings.create().strength(1.0f));
+	public static final Milk_cauldron MILK_CAULDRON = new Milk_cauldron(FabricBlockSettings.create().strength(2.0F).nonOpaque().ticksRandomly());
 	public static final Item BANANA_SPAWN_EGG = new SpawnEggItem(ModEntities.BANANAMONSTER, 16700985, 16509870, new FabricItemSettings());
 	public static final Item APPLE_SPAWN_EGG = new SpawnEggItem(ModEntities.APPLEMONSTER, 03163, 00222, new FabricItemSettings());
 	public static final Item PINEAPPLE_SPAWN_EGG = new SpawnEggItem(ModEntities.PINEAPPLEMONSTER, 29100100, 2910066, new FabricItemSettings());
 	public static final Item COCONUT_SPAWN_EGG = new SpawnEggItem(ModEntities.COOCNUTMONSTER, 124423421 ,423241,new FabricItemSettings());
+	public static final Item MEAT_SPAWN_EGG = new SpawnEggItem(ModEntities.MEATMONSTER, 135653, 23521, new FabricItemSettings());
 	public static final William_tell_apple WILLIAM_TELL_APPLE = new William_tell_apple(new  FabricItemSettings());
 	public static final Frozen_apple_item FROZEN_APPLE_ITEM = new Frozen_apple_item(new FabricItemSettings(), 0, 0);
 	public static final Pineapple PINEAPPLE = new Pineapple(new FabricItemSettings());
@@ -56,6 +63,11 @@ public class Monkeysmod implements ModInitializer {
 	public static final Pineapple_cored PINEAPPLE_CORED = new Pineapple_cored(new FabricItemSettings());
 	public static final Coconut_shell COCONUT_SHELL = new Coconut_shell(new FabricItemSettings(), 0, 0);
 	public static final Coconut_food COCONUT_FOOD = new Coconut_food(new FabricItemSettings());
+	public static final Cheese_block CHEESE_BLOCK = new Cheese_block(FabricBlockSettings.create().strength(1.0f));
+	public static final Cheese_slice CHEESE_SLICE = new Cheese_slice(new FabricItemSettings());
+	public static final Grated_cheese GRATED_CHEESE = new Grated_cheese(new FabricItemSettings());
+	public static final Raw_meat RAW_MEAT = new Raw_meat(new FabricItemSettings());
+	public static final Cooked_meat COOKED_MEAT = new Cooked_meat(new FabricItemSettings());
 	
 
 
@@ -79,6 +91,12 @@ public class Monkeysmod implements ModInitializer {
 		entries.add(COCONUT_SPAWN_EGG);
 		entries.add(COCONUT_SHELL);
 		entries.add(COCONUT_FOOD);
+		entries.add(CHEESE_BLOCK);
+		entries.add(CHEESE_SLICE);
+		entries.add(GRATED_CHEESE);
+		entries.add(MEAT_SPAWN_EGG);
+		entries.add(RAW_MEAT);
+		entries.add(COOKED_MEAT);
 	
 	
 	}).build();
@@ -87,9 +105,8 @@ public class Monkeysmod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
+
+		new Cheese_cauldron_event().onInitialize();
 
 
 		Registry.register(Registries.ITEM_GROUP, new Identifier("monkeysmod", "monkeysmod"), ITEM_GROUP);
@@ -107,6 +124,7 @@ public class Monkeysmod implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.APPLEMONSTER, AppleEntity.createAppleAttributeBuilder());
 		FabricDefaultAttributeRegistry.register(ModEntities.PINEAPPLEMONSTER, PineappleEntity.createPineappleAttributeBuilder());
 		FabricDefaultAttributeRegistry.register(ModEntities.COOCNUTMONSTER, CoconutEntity.createCoconutAttributeBuilder());
+		FabricDefaultAttributeRegistry.register(ModEntities.MEATMONSTER, MeatEntity.createMeatAttributeBuilder());
 		ModCustomTrades.registerCustomTrades();
 		ModEntityGeneration.addSpawns();
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "william_tell_apple"), WILLIAM_TELL_APPLE);
@@ -114,6 +132,7 @@ public class Monkeysmod implements ModInitializer {
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "apple_spawn_egg"), APPLE_SPAWN_EGG);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "pineapple_spawn_egg"), PINEAPPLE_SPAWN_EGG);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "coconut_spawn_egg"), COCONUT_SPAWN_EGG);
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "meat_spawn_egg"), MEAT_SPAWN_EGG);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "frozen_apple_item"),FROZEN_APPLE_ITEM);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "pineapple"), PINEAPPLE);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "pineapple_stem"), PINEAPPLE_STEM);
@@ -121,6 +140,13 @@ public class Monkeysmod implements ModInitializer {
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "pineapple_cored"), PINEAPPLE_CORED);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "coconut_shell"), COCONUT_SHELL);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "coconut_food"), COCONUT_FOOD);
+		Registry.register(Registries.BLOCK, new Identifier("monkeysmod", "milk_cauldron"), MILK_CAULDRON);
+		Registry.register(Registries.BLOCK, new Identifier("monkeysmod", "cheese_block"), CHEESE_BLOCK);
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "cheese_block"), new BlockItem(CHEESE_BLOCK, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "cheese_slice"), CHEESE_SLICE);
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "grated_cheese"), GRATED_CHEESE);
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "raw_meat"), RAW_MEAT);
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "cooked_meat"), COOKED_MEAT);
 
 
 

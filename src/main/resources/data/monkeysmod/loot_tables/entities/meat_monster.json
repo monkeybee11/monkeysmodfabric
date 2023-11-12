@@ -1,0 +1,61 @@
+{
+    "type": "minecraft:entity",
+    "pools": [
+      {
+        "rolls": 1,
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "name": "monkeysmod:raw_meat",
+            "conditions": [
+              {
+                "condition": "minecraft:entity_properties",
+                "predicate": {
+                  "flags": {
+                    "on_fire": false
+                  }
+                },
+                "entity": "this"
+              }
+            ],
+            "functions": [
+              {
+                "function": "minecraft:apply_bonus",
+                "enchantment": "minecraft:looting",
+                "formula": "minecraft:uniform_bonus_count",
+                "parameters": {
+                  "bonusMultiplier": 1
+                }
+              }
+            ]
+          },
+          {
+            "type": "minecraft:item",
+            "name": "monkeysmod:cooked_meat",
+            "conditions": [
+              {
+                "condition": "minecraft:entity_properties",
+                "predicate": {
+                  "flags": {
+                    "on_fire": true
+                  }
+                },
+                "entity": "this"
+              }
+            ],
+            "functions": [
+              {
+                "function": "minecraft:apply_bonus",
+                "enchantment": "minecraft:looting",
+                "formula": "minecraft:uniform_bonus_count",
+                "parameters": {
+                  "bonusMultiplier": 1
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  

@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "age=0": { "model": "monkeysmod:block/milk_cauldron" },
+        "age=1": { "model": "monkeysmod:block/cheese_cauldron" }
+    }
+}

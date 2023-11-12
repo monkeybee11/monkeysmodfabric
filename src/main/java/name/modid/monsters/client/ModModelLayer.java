@@ -16,5 +16,8 @@ public class ModModelLayer {
    public static final EntityModelLayer COCONUTMONSTER =
    new EntityModelLayer(new Identifier("monkeysmod", "coconut_monster"), "main");
 
+   public static final EntityModelLayer MEATMONSTER =
+   new EntityModelLayer(new Identifier("monkeysmod", "meat_monster"), "main");
+
 
 }
