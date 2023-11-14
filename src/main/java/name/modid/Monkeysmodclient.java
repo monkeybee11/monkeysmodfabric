@@ -9,6 +9,8 @@ import name.modid.monsters.client.CoconutEntityModel;
 import name.modid.monsters.client.CoconutEntityRenderer;
 import name.modid.monsters.client.MeatEntityModel;
 import name.modid.monsters.client.MeatEntityRenderer;
+import name.modid.monsters.client.MincepieEntityRenderer;
+import name.modid.monsters.client.Mincepie_model;
 import name.modid.monsters.client.ModModelLayer;
 import name.modid.monsters.client.PineappleEntityModel;
 import name.modid.monsters.client.PineappleEntityRenderer;
@@ -26,6 +28,7 @@ public class Monkeysmodclient implements ClientModInitializer {
     public static final EntityModelLayer MODEL_PINEAPPLE_LAYER = new EntityModelLayer(new Identifier("monkeysmod", "pineapple_monster"), "main");
     public static final EntityModelLayer MODEL_COCONUT_LAYER = new EntityModelLayer(new Identifier("monkeysmod", "coconut_monster"), "main");
     public static final EntityModelLayer MODEL_MEAT_LAYER = new EntityModelLayer(new Identifier("monkeysmod", "meat_monster"), "main");
+    public static final EntityModelLayer MODEL_MINCEPIE_LAYER = new EntityModelLayer(new Identifier("monkeysmod", "mincepie_monster"), "main");
 
     @Override
     public void onInitializeClient() {
@@ -45,6 +48,11 @@ public class Monkeysmodclient implements ClientModInitializer {
 
         EntityRendererRegistry.register(ModEntities.MEATMONSTER, MeatEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayer.MEATMONSTER, MeatEntityModel::getTexturedModelData);
+
+        EntityRendererRegistry.register(ModEntities.MINCEPIE, MincepieEntityRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayer.MINCEPIE, Mincepie_model::getTexturedModelData);
+
+        
 
 
 

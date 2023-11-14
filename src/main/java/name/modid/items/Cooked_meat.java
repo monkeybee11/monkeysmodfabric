@@ -42,8 +42,6 @@ public class Cooked_meat extends Item {
             new ItemStack(Items.COOKED_PORKCHOP),
             new ItemStack(Items.COOKED_CHICKEN),
             new ItemStack(Items.COOKED_MUTTON),
-            new ItemStack(Items.COOKED_COD),
-            new ItemStack(Items.COOKED_SALMON),
             new ItemStack(Items.COOKED_RABBIT)
         };
         Random random = new Random();

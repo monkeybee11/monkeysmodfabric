@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "slice=0": { "model": "monkeysmod:block/pizza_3_block" },
+        "slice=1": { "model": "monkeysmod:block/pizza_2_block" },
+        "slice=2": { "model": "monkeysmod:block/pizza_1_block" },
+        "slice=3": { "model": "monkeysmod:block/pizza_full_block" }
+    }
+}

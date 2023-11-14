@@ -36,6 +36,14 @@ public class ModEntityGeneration {
         //meat
         BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.PLAINS), SpawnGroup.MONSTER, ModEntities.MEATMONSTER, 35, 1, 5);
         SpawnRestriction.register(ModEntities.MEATMONSTER, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HostileEntity::canSpawnInDark); 
+
+        //mince pie
+        BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.SNOWY_BEACH), SpawnGroup.MONSTER, ModEntities.MINCEPIE, 35, 1, 5);
+        BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.SNOWY_PLAINS), SpawnGroup.MONSTER, ModEntities.MINCEPIE, 35, 1, 5);
+        BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.SNOWY_SLOPES), SpawnGroup.MONSTER, ModEntities.MINCEPIE, 35, 1, 5);
+        BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.SNOWY_TAIGA), SpawnGroup.MONSTER, ModEntities.MINCEPIE, 35, 1, 5);
+        BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.ICE_SPIKES), SpawnGroup.MONSTER, ModEntities.MINCEPIE, 35, 1, 5);
+        SpawnRestriction.register(ModEntities.MINCEPIE, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HostileEntity::canSpawnInDark);
         
     }
     

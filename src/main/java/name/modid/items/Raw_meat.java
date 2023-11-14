@@ -42,9 +42,8 @@ public class Raw_meat extends Item {
             new ItemStack(Items.PORKCHOP),
             new ItemStack(Items.CHICKEN),
             new ItemStack(Items.MUTTON),
-            new ItemStack(Items.COD),
             new ItemStack(Items.RABBIT),
-            new ItemStack(Items.SALMON)
+            new ItemStack(Items.ROTTEN_FLESH)
         };
         Random random = new Random();
         int count = random.nextInt(3) + 1; // random number between 1 and 3

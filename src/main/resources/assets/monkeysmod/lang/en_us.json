@@ -21,6 +21,20 @@
     "item.monkeysmod.coconut_spawn_egg": "coconut spawn egg",
     "item.monkeysmod.coconut_shell": "coconut shell",
     "item.monkeysmod.coconut_food": "cracked coconut",
-    "block.monkeysmod.cheese_block": "cheese block"
+    "block.monkeysmod.cheese_block": "cheese block",
+    "item.monkeysmod.cheese_slice": "cheese slice",
+    "item.monkeysmod.grated_cheese": "grated cheese",
+    "entity.monkeysmod.meat_monster": "meat",
+    "item.monkeysmod.raw_meat": "raw meat",
+    "item.monkeysmod.cooked_meat": "cooked meat",
+    "item.monkeysmod.harm_on_bone": "harm bat",
+    "item.monkeysmod.raw_pizza": "raw pizza",
+    "item.monkeysmod.cooked_pizza": "cooked pizza",
+    "block.monkeysmod.pizza_block": "pizza",
+    "item.monkeysmod.carrot_drill": "carrot drill",
+    "entity.monkeysmod.mince_pie": "mince pie",
+    "item.monkeysmod.mince_pie": "mince pie",
+    "item.monkeysmod.mincepie_spawn_egg": "mincepie spawn egg",
+    "item.monkeysmod.mince_pie_item": "mince pie"
     
 }

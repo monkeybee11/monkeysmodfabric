@@ -49,11 +49,9 @@ public class Cheese_block extends Block {
             if (state.get(LAYERS) > 1) {
                 // Decrease the number of layers by one
                 world.setBlockState(pos, state.with(LAYERS, state.get(LAYERS) - 1));
-                // Drop an apple
                 dropStack(world, pos, new ItemStack(Monkeysmod.CHEESE_SLICE));
                 return ActionResult.SUCCESS;
             } else {
-                // Drop an apple
                 dropStack(world, pos, new ItemStack(Monkeysmod.CHEESE_SLICE));
                 // Destroy the block
                 world.breakBlock(pos, true);

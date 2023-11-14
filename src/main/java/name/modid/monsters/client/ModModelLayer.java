@@ -19,5 +19,8 @@ public class ModModelLayer {
    public static final EntityModelLayer MEATMONSTER =
    new EntityModelLayer(new Identifier("monkeysmod", "meat_monster"), "main");
 
+   public static final EntityModelLayer MINCEPIE =
+   new EntityModelLayer(new Identifier("monkeysmod", "mincepie_monster"), "main");
+
 
 }

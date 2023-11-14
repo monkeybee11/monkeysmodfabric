@@ -1,0 +1,10 @@
+{
+    "type": "minecraft:campfire_cooking",
+    "category": "food",
+    "cookingtime": 80,
+    "experience": 0.35,
+    "ingredient": {
+      "item": "monkeysmod:raw_pizza"
+    },
+    "result": "monkeysmod:pizza_block"
+  }

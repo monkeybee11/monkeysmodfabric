@@ -3,6 +3,7 @@ package name.modid.monsters;
 import name.modid.monsters.custom.BananaEntity;
 import name.modid.monsters.custom.CoconutEntity;
 import name.modid.monsters.custom.MeatEntity;
+import name.modid.monsters.custom.MincepieEntity;
 import name.modid.monsters.custom.PineappleEntity;
 import name.modid.monsters.custom.AppleEntity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
@@ -37,6 +38,11 @@ public class ModEntities {
         public static final EntityType<MeatEntity> MEATMONSTER = Registry.register(Registries.ENTITY_TYPE,
                 new Identifier("monkeysmod", "meat_monster"),
                 FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, MeatEntity::new)
+                        .dimensions(EntityDimensions.fixed(1, 1.5f)).build());
+
+        public static final EntityType<MincepieEntity> MINCEPIE = Registry.register(Registries.ENTITY_TYPE,
+                new Identifier("monkeysmod", "mincepie_monster"),
+                FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, MincepieEntity::new)
                         .dimensions(EntityDimensions.fixed(1, 1.5f)).build());
 
 

@@ -1,28 +1,12 @@
 {
     "variants": {
-      "layers=1": {
-        "model": "monkeysmod:block/cheese_height2"
-      },
-      "layers=2": {
-        "model": "monkeysmod:block/cheese_height4"
-      },
-      "layers=3": {
-        "model": "monkeysmod:block/cheese_height6"
-      },
-      "layers=4": {
-        "model": "monkeysmod:block/cheese_height8"
-      },
-      "layers=5": {
-        "model": "monkeysmod:block/cheese_height10"
-      },
-      "layers=6": {
-        "model": "monkeysmod:block/cheese_height12"
-      },
-      "layers=7": {
-        "model": "monkeysmod:block/cheese_height14"
-      },
-      "layers=8": {
-        "model": "monkeysmod:block/cheese_block"
-      }
+      "layers=1": {"model": "monkeysmod:block/cheese_height2"},
+      "layers=2": {"model": "monkeysmod:block/cheese_height4"},
+      "layers=3": {"model": "monkeysmod:block/cheese_height6"},
+      "layers=4": {"model": "monkeysmod:block/cheese_height8"},
+      "layers=5": {"model": "monkeysmod:block/cheese_height10"},
+      "layers=6": {"model": "monkeysmod:block/cheese_height12"},
+      "layers=7": {"model": "monkeysmod:block/cheese_height14"},
+      "layers=8": {"model": "monkeysmod:block/cheese_block"}
     }
   }

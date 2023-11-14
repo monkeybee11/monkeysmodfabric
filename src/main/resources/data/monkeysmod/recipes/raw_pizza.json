@@ -1,0 +1,27 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "MPM",
+      "CMC",
+      "WWW"
+    ],
+    "key": {
+      "M": {
+        "type": "minecraft:tag",
+        "tag": "monkeysmod:meats"
+      },
+      "P": {
+        "item": "monkeysmod:pineapple_ring"
+      },
+      "C": {
+        "item": "monkeysmod:grated_cheese"
+      },
+      "W": {
+        "item": "minecraft:wheat"
+      }
+    },
+    "result": {
+      "item": "monkeysmod:raw_pizza"
+    }
+  }
+  
