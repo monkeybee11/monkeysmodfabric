@@ -1,5 +1,7 @@
 package name.modid.items;
 
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -7,9 +9,12 @@ import net.minecraft.item.Items;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
+import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
+
+import java.util.List;
 import java.util.function.Consumer;
 
 import name.modid.Monkeysmod;
@@ -62,4 +67,15 @@ public class Coconut_shell extends Item {
 			return TypedActionResult.success(itemStack, world.isClient());
 		}
 	}
+
+	    @Override
+    public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
+        if(Screen.hasShiftDown()) {
+            tooltip.add(Text.translatable("item.monkeysmod.coconut_shell.tooltip"));
+        } else {
+            tooltip.add(Text.translatable("item.monkeysmod.item.tooltip"));
+        }
+    }
+
+
 }

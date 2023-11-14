@@ -1,15 +1,20 @@
 package name.modid.block;
 
+import java.util.List;
+
 import name.modid.Monkeysmod;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -77,5 +82,17 @@ public class Cheese_block extends Block {
         return ActionResult.FAIL;
     }
     
+
+        @Override
+        public void appendTooltip(ItemStack itemStack, BlockView world, List<Text> tooltip, TooltipContext tooltipContext) {
+            if(Screen.hasShiftDown()) {
+            tooltip.add(Text.translatable("block.monkeysmod.cheese_block.tooltip"));
+        } else {
+            tooltip.add(Text.translatable("item.monkeysmod.item.tooltip"));
+        }
+    }
+
+
+
     
 }

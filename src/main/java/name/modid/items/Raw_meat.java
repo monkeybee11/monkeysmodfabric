@@ -6,11 +6,15 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Items;
+import net.minecraft.text.Text;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+import java.util.List;
 import java.util.Random;
 
 public class Raw_meat extends Item {
@@ -50,5 +54,14 @@ public class Raw_meat extends Item {
         ItemStack meatToDrop = meats[random.nextInt(meats.length)];
         meatToDrop.setCount(count);
         player.giveItemStack(meatToDrop);
+    }
+
+    @Override
+    public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
+        if(Screen.hasShiftDown()) {
+            tooltip.add(Text.translatable("item.monkeysmod.raw_meat.tooltip"));
+        } else {
+            tooltip.add(Text.translatable("item.monkeysmod.item.tooltip"));
+        }
     }
 }

@@ -1,12 +1,17 @@
 package name.modid.items;
 
+import java.util.List;
+
 import name.modid.Monkeysmod;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -39,5 +44,15 @@ public class Pineapple extends Item {
     
         return super.useOnBlock(context);
     }
+
+    @Override
+    public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
+        if(Screen.hasShiftDown()) {
+            tooltip.add(Text.translatable("item.monkeysmod.pineapple.tooltip"));
+        } else {
+            tooltip.add(Text.translatable("item.monkeysmod.item.tooltip"));
+        }
+        
+}
     
 }

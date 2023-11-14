@@ -21,7 +21,7 @@
     "item.monkeysmod.coconut_spawn_egg": "coconut spawn egg",
     "item.monkeysmod.coconut_shell": "coconut shell",
     "item.monkeysmod.coconut_food": "cracked coconut",
-    "block.monkeysmod.cheese_block": "cheese block",
+    "block.monkeysmod.cheese_block": "block o' cheese",
     "item.monkeysmod.cheese_slice": "cheese slice",
     "item.monkeysmod.grated_cheese": "grated cheese",
     "entity.monkeysmod.meat_monster": "meat",
@@ -33,8 +33,17 @@
     "block.monkeysmod.pizza_block": "pizza",
     "item.monkeysmod.carrot_drill": "carrot drill",
     "entity.monkeysmod.mince_pie": "mince pie",
-    "item.monkeysmod.mince_pie": "mince pie",
     "item.monkeysmod.mincepie_spawn_egg": "mincepie spawn egg",
-    "item.monkeysmod.mince_pie_item": "mince pie"
+    "item.monkeysmod.mince_pie_item": "mince pie",
+    "item.monkeysmod.meat_spawn_egg": "meat spawn egg",
+    "item.monkeysmod.pineapple.tooltip": "use me on a end rod to pop out my stalk",
+    "item.monkeysmod.item.tooltip": "hold shift for help",
+    "item.monkeysmod.pineapple_cored.tooltip": "shift click me on a stone cutter to get pumpkin rings",
+    "item.monkeysmod.raw_meat.tooltip": "shift click me on a stone cutter for some raw meat goodies",
+    "item.monkeysmod.cooked_meat.tooltip": "shift click me on a stone cutter for some cooked meat goodies",
+    "item.monkeysmod.coconut_shell.tooltip": "lob me at your enermy or right click with a brick in your offhand for some grub",
+    "block.monkeysmod.cheese_block.tooltip": "put milk in a cauldron and wait place me then use a stick to slice or iron bars to grate",
+    "item.monkeysmod.frozen_apple_item.tooltip": "freeze the apple to get me",
+    "item.monkeysmod.william_tell_apple.tooltip": "shoot and arrow at the apple monster....dont eat when your low on hp"
     
 }
