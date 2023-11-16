@@ -17,6 +17,8 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.Random;
 
+import name.modid.Monkeysmod;
+
 public class Raw_meat extends Item {
     public Raw_meat(Settings settings) {
         super(settings);
@@ -47,7 +49,8 @@ public class Raw_meat extends Item {
             new ItemStack(Items.CHICKEN),
             new ItemStack(Items.MUTTON),
             new ItemStack(Items.RABBIT),
-            new ItemStack(Items.ROTTEN_FLESH)
+            new ItemStack(Items.ROTTEN_FLESH),
+            new ItemStack(Monkeysmod.HARM_BAT)
         };
         Random random = new Random();
         int count = random.nextInt(3) + 1; // random number between 1 and 3

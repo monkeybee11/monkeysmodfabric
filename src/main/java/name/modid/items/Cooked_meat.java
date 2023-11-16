@@ -17,6 +17,8 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.Random;
 
+import name.modid.Monkeysmod;
+
 public class Cooked_meat extends Item {
     public Cooked_meat(Settings settings) {
         super(settings);
@@ -46,7 +48,8 @@ public class Cooked_meat extends Item {
             new ItemStack(Items.COOKED_PORKCHOP),
             new ItemStack(Items.COOKED_CHICKEN),
             new ItemStack(Items.COOKED_MUTTON),
-            new ItemStack(Items.COOKED_RABBIT)
+            new ItemStack(Items.COOKED_RABBIT),
+            new ItemStack(Monkeysmod.HARM_BAT)
         };
         Random random = new Random();
         int count = random.nextInt(3) + 1; // random number between 1 and 3
