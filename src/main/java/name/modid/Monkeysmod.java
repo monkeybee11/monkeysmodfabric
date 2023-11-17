@@ -32,6 +32,7 @@ import name.modid.items.Coconut_food;
 import name.modid.items.Coconut_shell;
 import name.modid.items.Cooked_meat;
 import name.modid.items.Frozen_apple_item;
+import name.modid.items.Golden_carrot_drill;
 import name.modid.items.Peeled_banana;
 import name.modid.items.Pineapple;
 import name.modid.items.Pineapple_cored;
@@ -89,6 +90,10 @@ public class Monkeysmod implements ModInitializer {
 	public static final Carrot_drill CARROT_DRILL = new Carrot_drill(ToolMaterials.NETHERITE, 0, 0, new FabricItemSettings());
 	private static final Identifier VILLAGER_CHEST_LOOT_TABLE_ID = new Identifier("minecraft", "chests/village/village_plains_house");
 	public static final Mince_pie_item MINCE_PIE_ITEM = new Mince_pie_item(new FabricItemSettings());
+	public static final Golden_carrot_drill GOLDEN_CARROT_DRILL = new Golden_carrot_drill(ToolMaterials.NETHERITE, 0, 0, new FabricItemSettings());
+	private static final Identifier ANCHENT_CHEST_LOOT_TABLE_ID = new Identifier("minecraft", "chests/ancient_city");
+
+
 
 	
 
@@ -122,6 +127,7 @@ public class Monkeysmod implements ModInitializer {
 		entries.add(COOKED_PIZZA);
 		entries.add(PIZZA_BLOCK);
 		entries.add(CARROT_DRILL);
+		entries.add(GOLDEN_CARROT_DRILL);
 		entries.add(MINCE_PIE_ITEM);
 		entries.add(MINCE_PIE_EGG);
 	
@@ -143,7 +149,16 @@ public class Monkeysmod implements ModInitializer {
                     .build();
 
                 supplier.pool(pool);
-            }
+            } else if (ANCHENT_CHEST_LOOT_TABLE_ID.equals(id)) {
+				LootPool pool = LootPool.builder()
+					.rolls(ConstantLootNumberProvider.create(1))
+					.with(ItemEntry.builder(Monkeysmod.GOLDEN_CARROT_DRILL))
+					.build();
+
+
+				supplier.pool(pool);
+
+			}
         });
 		
 
@@ -194,6 +209,8 @@ public class Monkeysmod implements ModInitializer {
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "pizza_block"), new BlockItem(PIZZA_BLOCK, new FabricItemSettings()));
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "carrot_drill"), CARROT_DRILL);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "mince_pie_item"), MINCE_PIE_ITEM);
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "golden_carrot_drill"), GOLDEN_CARROT_DRILL);
+
 
 
 	}

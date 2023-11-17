@@ -14,7 +14,10 @@ import net.minecraft.text.Text;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import name.modid.Monkeysmod;
@@ -43,18 +46,25 @@ public class Raw_meat extends Item {
     }
 
     private void dropRandomMeat(PlayerEntity player) {
-        ItemStack[] meats = new ItemStack[]{
-            new ItemStack(Items.BEEF),
-            new ItemStack(Items.PORKCHOP),
-            new ItemStack(Items.CHICKEN),
-            new ItemStack(Items.MUTTON),
-            new ItemStack(Items.RABBIT),
-            new ItemStack(Items.ROTTEN_FLESH),
-            new ItemStack(Monkeysmod.HARM_BAT)
-        };
+        // Define the items and their weights
+        Map<ItemStack, Integer> weightedMeats = new HashMap<>();
+        weightedMeats.put(new ItemStack(Items.BEEF), 10);
+        weightedMeats.put(new ItemStack(Items.PORKCHOP), 9);
+        weightedMeats.put(new ItemStack(Items.CHICKEN), 8);
+        weightedMeats.put(new ItemStack(Items.MUTTON), 7);
+        weightedMeats.put(new ItemStack(Monkeysmod.HARM_BAT), 1);
+
+        // Create a list for the weighted random selection
+        List<ItemStack> meats = new ArrayList<>();
+        for (Map.Entry<ItemStack, Integer> entry : weightedMeats.entrySet()) {
+            for (int i = 0; i < entry.getValue(); i++) {
+                meats.add(entry.getKey());
+            }
+        }
+
         Random random = new Random();
         int count = random.nextInt(3) + 1; // random number between 1 and 3
-        ItemStack meatToDrop = meats[random.nextInt(meats.length)];
+        ItemStack meatToDrop = meats.get(random.nextInt(meats.size()));
         meatToDrop.setCount(count);
         player.giveItemStack(meatToDrop);
     }

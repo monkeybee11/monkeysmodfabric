@@ -1,0 +1,6 @@
+{
+    "parent": "monkeysmod:item/carrot_drill",
+    "textures": {
+        "0": "monkeysmod:item/golden_carrot_drill"
+    }
+  }
