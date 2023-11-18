@@ -42,6 +42,6 @@ public class Carrot_drill extends PickaxeItem {
     @Override
     public boolean isSuitableFor(BlockState state) {
         // Prevent the pickaxe from breaking blocks that are ores
-        return !state.isOf(Blocks.COAL_ORE) && !state.isOf(Blocks.IRON_ORE) && !state.isOf(Blocks.GOLD_ORE) && !state.isOf(Blocks.DIAMOND_ORE) && !state.isOf(Blocks.EMERALD_ORE) && !state.isOf(Blocks.LAPIS_ORE) && !state.isOf(Blocks.REDSTONE_ORE) && !state.isOf(Blocks.NETHER_QUARTZ_ORE) && !state.isOf(Blocks.NETHER_GOLD_ORE) && super.isSuitableFor(state);
+        return !state.isOf(Blocks.COAL_ORE) && !state.isOf(Blocks.IRON_ORE) && !state.isOf(Blocks.GOLD_ORE) && !state.isOf(Blocks.DIAMOND_ORE) && !state.isOf(Blocks.EMERALD_ORE) && !state.isOf(Blocks.LAPIS_ORE) && !state.isOf(Blocks.REDSTONE_ORE) && !state.isOf(Blocks.NETHER_QUARTZ_ORE) && !state.isOf(Blocks.NETHER_GOLD_ORE) && !state.isOf(Blocks.COPPER_ORE) && super.isSuitableFor(state);
     }
 }
