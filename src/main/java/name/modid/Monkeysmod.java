@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -21,9 +22,14 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import name.modid.block.Appleblock;
 import name.modid.block.Bananabunch;
 import name.modid.block.Cheese_block;
+import name.modid.block.Coconut_crop;
+import name.modid.block.Meat_crop;
 import name.modid.block.Milk_cauldron;
+import name.modid.block.Mince_pie_crop;
+import name.modid.block.Pineapple_crop;
 import name.modid.block.Pizza_block;
 import name.modid.event.Cheese_cauldron_event;
 import name.modid.items.Banana;
@@ -45,6 +51,7 @@ import name.modid.items.Meat_mats;
 import name.modid.items.Mince_pie_item;
 import name.modid.items.Raw_pizza;
 import name.modid.items.Cooked_pizza;
+import name.modid.items.Seed_wand;
 import name.modid.monsters.ModEntities;
 import name.modid.monsters.custom.AppleEntity;
 import name.modid.monsters.custom.BananaEntity;
@@ -92,6 +99,12 @@ public class Monkeysmod implements ModInitializer {
 	public static final Mince_pie_item MINCE_PIE_ITEM = new Mince_pie_item(new FabricItemSettings());
 	public static final Golden_carrot_drill GOLDEN_CARROT_DRILL = new Golden_carrot_drill(ToolMaterials.NETHERITE, 0, 0, new FabricItemSettings());
 	private static final Identifier ANCHENT_CHEST_LOOT_TABLE_ID = new Identifier("minecraft", "chests/ancient_city");
+	public static final Seed_wand SEED_WAND = new Seed_wand(new FabricItemSettings().maxDamage(15));
+	public static final Meat_crop MEAT_CROP = new Meat_crop(FabricBlockSettings.copyOf(Blocks.WHEAT).nonOpaque());
+	public static final Pineapple_crop PINEAPPLE_CROP = new Pineapple_crop(FabricBlockSettings.copyOf(Blocks.WHEAT).nonOpaque());
+	public static final Mince_pie_crop MINCE_PIE_CROP = new Mince_pie_crop(FabricBlockSettings.copyOf(Blocks.WHEAT));
+	public static final Coconut_crop COCONUT_CROP = new Coconut_crop(FabricBlockSettings.copyOf(Blocks.WHEAT).nonOpaque());
+	public static final Appleblock APPLEBLOCK = new Appleblock(FabricBlockSettings.create().strength(1.0f));
 
 
 
@@ -130,6 +143,12 @@ public class Monkeysmod implements ModInitializer {
 		entries.add(GOLDEN_CARROT_DRILL);
 		entries.add(MINCE_PIE_ITEM);
 		entries.add(MINCE_PIE_EGG);
+		entries.add(SEED_WAND);
+		entries.add(MEAT_CROP);
+		entries.add(PINEAPPLE_CROP);
+		entries.add(MINCE_PIE_CROP);
+		entries.add(COCONUT_CROP);
+		entries.add(APPLEBLOCK);
 	
 	
 	}).build();
@@ -160,6 +179,8 @@ public class Monkeysmod implements ModInitializer {
 
 			}
         });
+
+		
 		
 
 		Registry.register(Registries.ITEM_GROUP, new Identifier("monkeysmod", "monkeysmod"), ITEM_GROUP);
@@ -210,8 +231,17 @@ public class Monkeysmod implements ModInitializer {
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "carrot_drill"), CARROT_DRILL);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "mince_pie_item"), MINCE_PIE_ITEM);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "golden_carrot_drill"), GOLDEN_CARROT_DRILL);
-
-
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "seed_wand"), SEED_WAND);
+		Registry.register(Registries.BLOCK, new Identifier("monkeysmod", "meat_crop"), MEAT_CROP);
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "meat_seed"), new BlockItem(MEAT_CROP, new FabricItemSettings()));
+		Registry.register(Registries.BLOCK, new Identifier("monkeysmod", "pineapple_crop"), PINEAPPLE_CROP);
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "pineapple_seed"), new BlockItem(PINEAPPLE_CROP, new FabricItemSettings()));
+		Registry.register(Registries.BLOCK, new Identifier("monkeysmod", "mincepie_crop"), MINCE_PIE_CROP);
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "mincepie_seed"), new BlockItem(MINCE_PIE_CROP, new FabricItemSettings()));
+		Registry.register(Registries.BLOCK, new Identifier("monkeysmod", "coconut_crop"), COCONUT_CROP);
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "coconut_seed"), new BlockItem(COCONUT_CROP, new FabricItemSettings()));
+		Registry.register(Registries.BLOCK, new Identifier("monkeysmod", "appleblock"), APPLEBLOCK);
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "appleblock"), new BlockItem(APPLEBLOCK, new FabricItemSettings()));
 
 	}
 }

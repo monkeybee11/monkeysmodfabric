@@ -45,6 +45,12 @@
     "item.monkeysmod.coconut_shell.tooltip": "lob me at your enermy or right click with a brick in your offhand for some grub",
     "block.monkeysmod.cheese_block.tooltip": "put milk in a cauldron and wait place me then use a stick to slice or iron bars to grate",
     "item.monkeysmod.frozen_apple_item.tooltip": "freeze the apple to get me",
-    "item.monkeysmod.william_tell_apple.tooltip": "shoot and arrow at the apple monster....dont eat when your low on hp"
+    "item.monkeysmod.william_tell_apple.tooltip": "shoot and arrow at the apple monster....dont eat when your low on hp",
+    "item.monkeysmod.seed_wand": "seed wand",
+    "block.monkeysmod.meat_crop": "meat seed",
+    "block.monkeysmod.pineapple_crop": "pineapple seed",
+    "block.monkeysmod.mincepie_crop": "mincepie seed",
+    "block.monkeysmod.coconut_crop": "coconut seed",
+    "block.monkeysmod.appleblock": "apple seed"
     
 }

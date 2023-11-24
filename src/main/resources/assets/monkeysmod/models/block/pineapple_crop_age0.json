@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:block/crop",
+    "textures": {
+      "crop": "monkeysmod:block/pineapple_crop_age0"
+    }
+  }

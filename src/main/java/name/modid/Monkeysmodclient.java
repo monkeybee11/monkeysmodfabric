@@ -15,13 +15,17 @@ import name.modid.monsters.client.ModModelLayer;
 import name.modid.monsters.client.PineappleEntityModel;
 import name.modid.monsters.client.PineappleEntityRenderer;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.util.Identifier;
 
 
 public class Monkeysmodclient implements ClientModInitializer {
+
+    
     
     public static final EntityModelLayer MODEL_BANANA_LAYER = new EntityModelLayer(new Identifier("monkeysmod", "banana_monster"), "main");
     public static final EntityModelLayer MODEL_APPLE_LAYER = new EntityModelLayer(new Identifier("monkeysmod", "apple_monster"), "main");
@@ -51,6 +55,10 @@ public class Monkeysmodclient implements ClientModInitializer {
 
         EntityRendererRegistry.register(ModEntities.MINCEPIE, MincepieEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayer.MINCEPIE, Mincepie_model::getTexturedModelData);
+
+        BlockRenderLayerMap.INSTANCE.putBlock(Monkeysmod.MEAT_CROP, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(Monkeysmod.PINEAPPLE_CROP, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(Monkeysmod.COCONUT_CROP, RenderLayer.getCutout());
 
         
 

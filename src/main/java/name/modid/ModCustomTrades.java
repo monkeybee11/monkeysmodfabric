@@ -19,6 +19,11 @@ public class ModCustomTrades {
                 new ItemStack(Monkeysmod.CARROT_DRILL, 1),
                 6, 4, 0.5f
             ));
+            factories.add((entity, random) -> new TradeOffer(
+                new ItemStack(Items.EMERALD, random.nextInt(2) +3),
+                new ItemStack(Monkeysmod.SEED_WAND, 1),
+                6, 4, 0.5f
+            ));
         });
     }
 }

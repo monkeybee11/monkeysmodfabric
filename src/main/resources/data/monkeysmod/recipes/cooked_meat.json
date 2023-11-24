@@ -1,0 +1,10 @@
+{
+    "type": "minecraft:smelting",
+    "ingredient": {
+      "item": "monkeysmod:raw_meat"
+    },
+    "result": "monkeysmod:cooked_meat",
+    "experience": 0.35,
+    "cookingtime": 200
+  }
+  

@@ -24,21 +24,20 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.minecraft.state.property.Properties;
-import net.minecraft.text.Text;
 
 
-public class Bananabunch extends CropBlock {
+public class Appleblock extends CropBlock {
 
     public static final IntProperty AGE = Properties.AGE_2;
-    public static final VoxelShape Y_SHAPE = createCuboidShape(7.0D, 6.0D, 7.0D, 8.0D, 16.0D, 8.0D);
-    public Bananabunch(Settings settings) {
+    public static final VoxelShape Y_SHAPE = createCuboidShape(3.0D, 6.0D, 3.0D, 13.0D, 16.0D, 13.0D);
+    public Appleblock(Settings settings) {
         super(settings);
     }
 
     @Override
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         BlockState block = world.getBlockState(pos.offset(Direction.UP));
-        return block.getBlock() == Blocks.JUNGLE_LEAVES;
+        return block.getBlock() == Blocks.OAK_LEAVES;
      }
 
     @Override
@@ -69,28 +68,20 @@ public class Bananabunch extends CropBlock {
 
      @Override
      protected ItemConvertible getSeedsItem() {
-        return Monkeysmod.BANANA_BUNCH;
+        return Monkeysmod.APPLEBLOCK;
     }
 
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos , PlayerEntity player, Hand hand, BlockHitResult hit) {
-        ItemStack itemStack = player.getMainHandStack();
-        if (itemStack.getItem() == Monkeysmod.BANANA_PICKER) {
-            if (getAge(state) >= 2) {
-                ItemStack stack = new ItemStack(Monkeysmod.BANANA, world.random.nextInt(6) + 1);
-                dropStack(world, pos, stack);
-                world.setBlockState(pos, state.with(AGE, 0));
-            }
-            return ActionResult.SUCCESS;
-        } 
-        else {
-            if (itemStack.getItem() != Items.BONE_MEAL)
-                player.sendMessage(Text.of("cant reach that from here if only there was a banana picker"), true);
+        if (getAge(state) >= 2) {
+            ItemStack stack = new ItemStack(Items.APPLE, world.random.nextInt(6) + 1);
+            dropStack(world, pos, stack);
+            world.setBlockState(pos, state.with(AGE, 0));
         }
-        return ActionResult.FAIL;
+        return ActionResult.SUCCESS;
     }
-
+    
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(AGE);
