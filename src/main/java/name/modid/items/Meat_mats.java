@@ -20,7 +20,7 @@ public class Meat_mats implements ToolMaterial {
 
     @Override
     public float getMiningSpeedMultiplier() {
-        return 4.0f;
+        return 10.0f;
     }
 
     @Override //starts out with the attack dammage as a diamond sword but gets weaker as it gets dammaged
@@ -31,7 +31,7 @@ public class Meat_mats implements ToolMaterial {
 
     @Override
     public int getMiningLevel() {
-        return 2;
+        return 5;
     }
 
     @Override

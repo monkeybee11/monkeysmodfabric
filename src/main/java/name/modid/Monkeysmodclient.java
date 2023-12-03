@@ -37,7 +37,6 @@ public class Monkeysmodclient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
 
-
         EntityRendererRegistry.register(ModEntities.BANANAMONSTER, BananaEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayer.BANANAMONSTER, BananaEntityModel::getTexturedModelData);
 
@@ -59,10 +58,6 @@ public class Monkeysmodclient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(Monkeysmod.MEAT_CROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(Monkeysmod.PINEAPPLE_CROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(Monkeysmod.COCONUT_CROP, RenderLayer.getCutout());
-
-        
-
-
 
     }
 }

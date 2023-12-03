@@ -1,0 +1,10 @@
+{
+    "variants": {
+      "facing=north": { "model": "monkeysmod:block/bin" },
+      "facing=east":  { "model": "monkeysmod:block/bin", "y": 90 },
+      "facing=south": { "model": "monkeysmod:block/bin", "y": 180 },
+      "facing=west":  { "model": "monkeysmod:block/bin", "y": 270 },
+      "facing=up":    { "model": "monkeysmod:block/bin" },
+      "facing=down":  { "model": "monkeysmod:block/bin"}
+    }
+  }

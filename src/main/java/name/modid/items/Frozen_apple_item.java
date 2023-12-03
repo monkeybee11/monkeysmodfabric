@@ -54,15 +54,13 @@ public class Frozen_apple_item extends Item {
 		return TypedActionResult.success(itemStack, world.isClient());
 	}
 
-	        @Override
-			public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
-				if(Screen.hasShiftDown()) {
-            tooltip.add(Text.translatable("item.monkeysmod.frozen_apple_item.tooltip"));
-        } else {
-            tooltip.add(Text.translatable("item.monkeysmod.item.tooltip"));
-        }
-    }
-
-
+	@Override
+	public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
+		if(Screen.hasShiftDown()) {
+			tooltip.add(Text.translatable("item.monkeysmod.frozen_apple_item.tooltip"));
+		} else {
+			tooltip.add(Text.translatable("item.monkeysmod.item.tooltip"));
+    	}
+	}
 
 }

@@ -1,6 +1,7 @@
 package name.modid;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
@@ -31,6 +32,7 @@ import name.modid.block.Milk_cauldron;
 import name.modid.block.Mince_pie_crop;
 import name.modid.block.Pineapple_crop;
 import name.modid.block.Pizza_block;
+import name.modid.block.Wheelie_bin;
 import name.modid.event.Cheese_cauldron_event;
 import name.modid.items.Banana;
 import name.modid.items.Carrot_drill;
@@ -105,6 +107,8 @@ public class Monkeysmod implements ModInitializer {
 	public static final Mince_pie_crop MINCE_PIE_CROP = new Mince_pie_crop(FabricBlockSettings.copyOf(Blocks.WHEAT));
 	public static final Coconut_crop COCONUT_CROP = new Coconut_crop(FabricBlockSettings.copyOf(Blocks.WHEAT).nonOpaque());
 	public static final Appleblock APPLEBLOCK = new Appleblock(FabricBlockSettings.create().strength(1.0f));
+	public static final Wheelie_bin WHEELIE_BIN = new Wheelie_bin(FabricBlockSettings.create().strength(1.0f));
+	
 
 
 
@@ -149,16 +153,27 @@ public class Monkeysmod implements ModInitializer {
 		entries.add(MINCE_PIE_CROP);
 		entries.add(COCONUT_CROP);
 		entries.add(APPLEBLOCK);
+		entries.add(WHEELIE_BIN);
 	
-	
-	}).build();
-	
+	}).build();	
 
 
 	@Override
 	public void onInitialize() {
 
 		new Cheese_cauldron_event().onInitialize();
+
+
+
+		//no more accadental budding braking
+		PlayerBlockBreakEvents.AFTER.register((world, player, pos, state, blockEntity) -> {
+			ItemStack itemStack = player.getMainHandStack();
+			if (state.getBlock() == Blocks.BUDDING_AMETHYST && !itemStack.isEmpty()) {
+				world.setBlockState(pos, Blocks.BUDDING_AMETHYST.getDefaultState());
+
+			}
+		});
+
 
         LootTableEvents.MODIFY.register((resourceManager, lootManager, id, supplier, setter) -> {
             if (VILLAGER_CHEST_LOOT_TABLE_ID.equals(id)) {
@@ -242,6 +257,8 @@ public class Monkeysmod implements ModInitializer {
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "coconut_seed"), new BlockItem(COCONUT_CROP, new FabricItemSettings()));
 		Registry.register(Registries.BLOCK, new Identifier("monkeysmod", "appleblock"), APPLEBLOCK);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "appleblock"), new BlockItem(APPLEBLOCK, new FabricItemSettings()));
+		Registry.register(Registries.BLOCK, new Identifier("monkeysmod", "wheelie_bin"), WHEELIE_BIN);
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "wheelie_bin"), new BlockItem(WHEELIE_BIN,new FabricItemSettings()));
 
 	}
 }
