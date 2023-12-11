@@ -31,7 +31,7 @@ public class Pineapple_crop extends CropBlock {
 
     @Override
     protected ItemConvertible getSeedsItem() {
-        return Monkeysmod.MEAT_CROP;
+        return Monkeysmod.PINEAPPLE_CROP;
     }
 
     @Override

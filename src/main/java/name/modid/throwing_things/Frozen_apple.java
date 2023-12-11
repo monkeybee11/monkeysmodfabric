@@ -22,7 +22,7 @@ public class Frozen_apple extends SnowballEntity {
 		this.damage = damage;
 		this.onCollide = onCollide;
 	}
-	
+
     @Override
     protected void onEntityHit(EntityHitResult entityHitResult) {
         Entity entity = entityHitResult.getEntity();

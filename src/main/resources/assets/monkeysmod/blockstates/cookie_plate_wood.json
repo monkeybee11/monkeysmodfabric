@@ -1,0 +1,7 @@
+{
+    "variants": {
+      "age=0": { "model": "monkeysmod:block/cookie_plate_wood" },
+      "age=1": { "model": "monkeysmod:block/cookie_plate_wood_full"},
+      "age=2": { "model": "monkeysmod:block/cookie_plate_wood_eatten"}
+  }
+}

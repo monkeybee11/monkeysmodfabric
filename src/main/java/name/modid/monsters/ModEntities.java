@@ -1,10 +1,13 @@
 package name.modid.monsters;
 
 import name.modid.monsters.custom.BananaEntity;
+import name.modid.monsters.custom.ChristmasTreeEntity;
 import name.modid.monsters.custom.CoconutEntity;
 import name.modid.monsters.custom.MeatEntity;
 import name.modid.monsters.custom.MincepieEntity;
 import name.modid.monsters.custom.PineappleEntity;
+import name.modid.monsters.custom.PizzaBoss;
+import name.modid.monsters.pizzatopping.PizzaTopping;
 import name.modid.monsters.custom.AppleEntity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
@@ -45,5 +48,23 @@ public class ModEntities {
                 FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, MincepieEntity::new)
                         .dimensions(EntityDimensions.fixed(1, 1.5f)).build());
 
+        public static final EntityType<PizzaBoss> PIZZABOSS = Registry.register(Registries.ENTITY_TYPE,
+                new Identifier("monkeysmod", "pizza_boss"),
+                FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, PizzaBoss::new)
+                        .dimensions(EntityDimensions.fixed(3, 1)).build());
+
+        public static final EntityType<PizzaTopping> PIZZA_TOPPING = Registry.register(Registries.ENTITY_TYPE,
+                new Identifier("monkeysmod", "pizza_topping"),
+                FabricEntityTypeBuilder.<PizzaTopping>create(SpawnGroup.MISC, (type, world) -> new PizzaTopping(type, world, 1, 1, 1))
+                        .dimensions(EntityDimensions.fixed(0.5f, 0.5f))
+                        .trackRangeBlocks(4).trackedUpdateRate(10)
+                        .build());
+
+        public static final EntityType<ChristmasTreeEntity> CHRISTMAS_TREE = Registry.register(Registries.ENTITY_TYPE,
+                new Identifier("monkeysmod", "christmas_tree"),
+                FabricEntityTypeBuilder.create(SpawnGroup.MISC, ChristmasTreeEntity::new)
+                        .dimensions(EntityDimensions.fixed(1, 2)).build());
+
+                
 
 }

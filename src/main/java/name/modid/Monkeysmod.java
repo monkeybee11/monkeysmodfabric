@@ -27,13 +27,18 @@ import name.modid.block.Appleblock;
 import name.modid.block.Bananabunch;
 import name.modid.block.Cheese_block;
 import name.modid.block.Coconut_crop;
+import name.modid.block.Cookie_plate_wood;
 import name.modid.block.Meat_crop;
 import name.modid.block.Milk_cauldron;
 import name.modid.block.Mince_pie_crop;
 import name.modid.block.Pineapple_crop;
 import name.modid.block.Pizza_block;
+import name.modid.block.Stocking;
 import name.modid.block.Wheelie_bin;
 import name.modid.event.Cheese_cauldron_event;
+import name.modid.event.Christmas_tree_event;
+import name.modid.event.Santa_event;
+import name.modid.event.Stocking_event;
 import name.modid.items.Banana;
 import name.modid.items.Carrot_drill;
 import name.modid.items.Coconut_food;
@@ -45,6 +50,7 @@ import name.modid.items.Peeled_banana;
 import name.modid.items.Pineapple;
 import name.modid.items.Pineapple_cored;
 import name.modid.items.Pineapple_ring;
+import name.modid.items.Pizza_shield;
 import name.modid.items.Raw_meat;
 import name.modid.items.William_tell_apple;
 import name.modid.items.Cheese_slice;
@@ -57,10 +63,12 @@ import name.modid.items.Seed_wand;
 import name.modid.monsters.ModEntities;
 import name.modid.monsters.custom.AppleEntity;
 import name.modid.monsters.custom.BananaEntity;
+import name.modid.monsters.custom.ChristmasTreeEntity;
 import name.modid.monsters.custom.CoconutEntity;
 import name.modid.monsters.custom.MeatEntity;
 import name.modid.monsters.custom.MincepieEntity;
 import name.modid.monsters.custom.PineappleEntity;
+import name.modid.monsters.custom.PizzaBoss;
 import name.modid.world.gen.ModEntityGeneration;
 
 public class Monkeysmod implements ModInitializer {
@@ -78,6 +86,7 @@ public class Monkeysmod implements ModInitializer {
 	public static final Item PINEAPPLE_SPAWN_EGG = new SpawnEggItem(ModEntities.PINEAPPLEMONSTER, 29100100, 2910066, new FabricItemSettings());
 	public static final Item COCONUT_SPAWN_EGG = new SpawnEggItem(ModEntities.COOCNUTMONSTER, 124423421 ,423241,new FabricItemSettings());
 	public static final Item MEAT_SPAWN_EGG = new SpawnEggItem(ModEntities.MEATMONSTER, 135653, 23521, new FabricItemSettings());
+	public static final Item PIZZABOSS_SPAWN_EGG = new SpawnEggItem(ModEntities.PIZZABOSS, 121212, 212121, new FabricItemSettings());
 	public static final Item MINCE_PIE_EGG = new SpawnEggItem(ModEntities.MINCEPIE, 12321, 23432, new FabricItemSettings());
 	public static final William_tell_apple WILLIAM_TELL_APPLE = new William_tell_apple(new  FabricItemSettings());
 	public static final Frozen_apple_item FROZEN_APPLE_ITEM = new Frozen_apple_item(new FabricItemSettings(), 0, 0);
@@ -108,8 +117,9 @@ public class Monkeysmod implements ModInitializer {
 	public static final Coconut_crop COCONUT_CROP = new Coconut_crop(FabricBlockSettings.copyOf(Blocks.WHEAT).nonOpaque());
 	public static final Appleblock APPLEBLOCK = new Appleblock(FabricBlockSettings.create().strength(1.0f));
 	public static final Wheelie_bin WHEELIE_BIN = new Wheelie_bin(FabricBlockSettings.create().strength(1.0f));
-	
-
+	public static final Pizza_shield PIZZA_SHIELD = new Pizza_shield(new FabricItemSettings().maxDamage(336));
+	public static final Cookie_plate_wood COOKIE_PLATE_WOOD = new Cookie_plate_wood(FabricBlockSettings.create().strength(1.0f).nonOpaque());
+	public static final Stocking STOCKING = new Stocking(FabricBlockSettings.create().strength(1.0f).nonOpaque());
 
 
 	
@@ -154,6 +164,10 @@ public class Monkeysmod implements ModInitializer {
 		entries.add(COCONUT_CROP);
 		entries.add(APPLEBLOCK);
 		entries.add(WHEELIE_BIN);
+		entries.add(PIZZA_SHIELD);
+		//entries.add(PIZZABOSS_SPAWN_EGG);
+		entries.add(COOKIE_PLATE_WOOD);
+		entries.add(STOCKING);
 	
 	}).build();	
 
@@ -162,6 +176,9 @@ public class Monkeysmod implements ModInitializer {
 	public void onInitialize() {
 
 		new Cheese_cauldron_event().onInitialize();
+		new Christmas_tree_event().onInitialize();
+		Santa_event.register();
+		new Stocking_event().onInitialize();
 
 
 
@@ -175,26 +192,22 @@ public class Monkeysmod implements ModInitializer {
 		});
 
 
-        LootTableEvents.MODIFY.register((resourceManager, lootManager, id, supplier, setter) -> {
-            if (VILLAGER_CHEST_LOOT_TABLE_ID.equals(id)) {
-                LootPool pool = LootPool.builder()
-                    .rolls(ConstantLootNumberProvider.create(1))
-                    .with(ItemEntry.builder(Monkeysmod.CARROT_DRILL))
-                    .build();
-
-                supplier.pool(pool);
-            } else if (ANCHENT_CHEST_LOOT_TABLE_ID.equals(id)) {
-				LootPool pool = LootPool.builder()
+		LootTableEvents.MODIFY.register((resourceManager, lootManager, id, supplier, setter) -> {
+			if (VILLAGER_CHEST_LOOT_TABLE_ID.equals(id)) {
+				LootPool.Builder poolBuilder = LootPool.builder()
 					.rolls(ConstantLootNumberProvider.create(1))
-					.with(ItemEntry.builder(Monkeysmod.GOLDEN_CARROT_DRILL))
-					.build();
-
-
-				supplier.pool(pool);
-
+					.with(ItemEntry.builder(Monkeysmod.CARROT_DRILL));
+		
+				supplier.pool(poolBuilder);
+			} else if (ANCHENT_CHEST_LOOT_TABLE_ID.equals(id)) {
+				LootPool.Builder poolBuilder = LootPool.builder()
+					.rolls(ConstantLootNumberProvider.create(1))
+					.with(ItemEntry.builder(Monkeysmod.GOLDEN_CARROT_DRILL));
+		
+				supplier.pool(poolBuilder);
 			}
-        });
-
+		});
+		
 		
 		
 
@@ -215,6 +228,8 @@ public class Monkeysmod implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.COOCNUTMONSTER, CoconutEntity.createCoconutAttributeBuilder());
 		FabricDefaultAttributeRegistry.register(ModEntities.MEATMONSTER, MeatEntity.createMeatAttributeBuilder());
 		FabricDefaultAttributeRegistry.register(ModEntities.MINCEPIE, MincepieEntity.createMincepieAttributeBuilder());
+		FabricDefaultAttributeRegistry.register(ModEntities.PIZZABOSS, PizzaBoss.createPizzaBossAttributeBuilder());
+		FabricDefaultAttributeRegistry.register(ModEntities.CHRISTMAS_TREE, ChristmasTreeEntity.createChristmasTreeAttributeBuilder());
 		ModCustomTrades.registerCustomTrades();
 		ModEntityGeneration.addSpawns();
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "william_tell_apple"), WILLIAM_TELL_APPLE);
@@ -224,6 +239,7 @@ public class Monkeysmod implements ModInitializer {
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "coconut_spawn_egg"), COCONUT_SPAWN_EGG);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "meat_spawn_egg"), MEAT_SPAWN_EGG);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "mincepie_spawn_egg"), MINCE_PIE_EGG);
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod" , "pizzaboss_spawn_egg"), PIZZABOSS_SPAWN_EGG);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "frozen_apple_item"),FROZEN_APPLE_ITEM);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "pineapple"), PINEAPPLE);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "pineapple_stem"), PINEAPPLE_STEM);
@@ -259,6 +275,10 @@ public class Monkeysmod implements ModInitializer {
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "appleblock"), new BlockItem(APPLEBLOCK, new FabricItemSettings()));
 		Registry.register(Registries.BLOCK, new Identifier("monkeysmod", "wheelie_bin"), WHEELIE_BIN);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "wheelie_bin"), new BlockItem(WHEELIE_BIN,new FabricItemSettings()));
-
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "pizza_shield"), PIZZA_SHIELD);
+		Registry.register(Registries.BLOCK, new Identifier("monkeysmod", "cookie_plate_wood"), COOKIE_PLATE_WOOD);
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "cookie_plate_wood"), new BlockItem(COOKIE_PLATE_WOOD, new FabricItemSettings()));
+		Registry.register(Registries.BLOCK, new Identifier("monkeysmod", "stocking"), STOCKING);
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "stocking"),new BlockItem(STOCKING, new FabricItemSettings()));
 	}
 }

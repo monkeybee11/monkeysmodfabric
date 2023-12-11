@@ -52,6 +52,12 @@
     "block.monkeysmod.mincepie_crop": "mincepie seed",
     "block.monkeysmod.coconut_crop": "coconut seed",
     "block.monkeysmod.appleblock": "apple seed",
-    "block.monkeysmod.wheelie_bin": "wheelie bin"
+    "block.monkeysmod.wheelie_bin": "wheelie bin",
+    "item.monkeysmod.pizza_shield": "pizza shield",
+    "entity.monkeysmod.pizza_boss": "pizza boss",
+    "item.monkeysmod.pizzaboss_spawn_egg": "pizza boss spawn egg",
+    "entity.monkeysmod.christmas_tree": "christmas tree",
+    "block.monkeysmod.cookie_plate_wood": "wooden cookie plate",
+    "block.monkeysmod.stocking": "stocking"
     
 }

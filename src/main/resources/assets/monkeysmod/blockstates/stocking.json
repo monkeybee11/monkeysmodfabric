@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "age=0": { "model": "monkeysmod:block/stocking_empty" },
+        "age=1": { "model": "monkeysmod:block/stocking_full" }
+    }
+}
