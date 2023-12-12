@@ -58,6 +58,7 @@
     "item.monkeysmod.pizzaboss_spawn_egg": "pizza boss spawn egg",
     "entity.monkeysmod.christmas_tree": "christmas tree",
     "block.monkeysmod.cookie_plate_wood": "wooden cookie plate",
-    "block.monkeysmod.stocking": "stocking"
+    "block.monkeysmod.stocking": "stocking",
+    "item.monkeysmod.santa_list": "a copy of santas list"
     
 }

@@ -23,6 +23,11 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
 import name.modid.block.Appleblock;
 import name.modid.block.Bananabunch;
 import name.modid.block.Cheese_block;
@@ -37,6 +42,7 @@ import name.modid.block.Stocking;
 import name.modid.block.Wheelie_bin;
 import name.modid.event.Cheese_cauldron_event;
 import name.modid.event.Christmas_tree_event;
+import name.modid.event.naughty_nice_list_event;
 import name.modid.event.Santa_event;
 import name.modid.event.Stocking_event;
 import name.modid.items.Banana;
@@ -59,6 +65,7 @@ import name.modid.items.Meat_mats;
 import name.modid.items.Mince_pie_item;
 import name.modid.items.Raw_pizza;
 import name.modid.items.Cooked_pizza;
+import name.modid.items.Copy_of_santas_list;
 import name.modid.items.Seed_wand;
 import name.modid.monsters.ModEntities;
 import name.modid.monsters.custom.AppleEntity;
@@ -73,7 +80,7 @@ import name.modid.world.gen.ModEntityGeneration;
 
 public class Monkeysmod implements ModInitializer {
 
-
+	static Map<UUID, Integer> playerData = new HashMap<>();
 
 	public static final Banana BANANA = new Banana(new FabricItemSettings());
 	public static final Peeled_banana PEELED_BANANA = new Peeled_banana(new FabricItemSettings());
@@ -120,7 +127,7 @@ public class Monkeysmod implements ModInitializer {
 	public static final Pizza_shield PIZZA_SHIELD = new Pizza_shield(new FabricItemSettings().maxDamage(336));
 	public static final Cookie_plate_wood COOKIE_PLATE_WOOD = new Cookie_plate_wood(FabricBlockSettings.create().strength(1.0f).nonOpaque());
 	public static final Stocking STOCKING = new Stocking(FabricBlockSettings.create().strength(1.0f).nonOpaque());
-
+    public static final Copy_of_santas_list SANTAS_LIST = new Copy_of_santas_list(new FabricItemSettings(), playerData);
 
 	
 
@@ -168,6 +175,7 @@ public class Monkeysmod implements ModInitializer {
 		//entries.add(PIZZABOSS_SPAWN_EGG);
 		entries.add(COOKIE_PLATE_WOOD);
 		entries.add(STOCKING);
+		entries.add(SANTAS_LIST);
 	
 	}).build();	
 
@@ -179,6 +187,7 @@ public class Monkeysmod implements ModInitializer {
 		new Christmas_tree_event().onInitialize();
 		Santa_event.register();
 		new Stocking_event().onInitialize();
+		new naughty_nice_list_event().onInitialize();
 
 
 
@@ -280,5 +289,6 @@ public class Monkeysmod implements ModInitializer {
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "cookie_plate_wood"), new BlockItem(COOKIE_PLATE_WOOD, new FabricItemSettings()));
 		Registry.register(Registries.BLOCK, new Identifier("monkeysmod", "stocking"), STOCKING);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "stocking"),new BlockItem(STOCKING, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "santa_list"), SANTAS_LIST);
 	}
 }

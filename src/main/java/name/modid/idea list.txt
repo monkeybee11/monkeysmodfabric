@@ -1,26 +1,3 @@
-christmas ideas
-
-dyeable vines
-
-christmas tree with modular decorations
-
-christmas lights : lantens / soul lantens / torchs / soul torches / candles
-
-tinzle : vines / colour vines / chain
-
-baubles : emrald / diamond / ironingot / goldingot / redstonedust
-
-star : diamond block / gold block / netherstar
-
-make a plate and cup block that can hold cookies and milk
-and stockings
-
-
-part of the idea that sounds far fetch for my skills 
-
-check for if theres cookies and milk in the block and its by a fireplace and have
- santa leave gifts in the stocking when the player sleeps
-
 
 make a naughty/nice list that gets effected by player actions
 kill passive mob - niceness 
