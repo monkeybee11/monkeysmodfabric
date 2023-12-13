@@ -18,7 +18,7 @@ public class ChristmasPigRenderer extends MobEntityRenderer<SantaPigEntity, Chri
 
     @Override
     public Identifier getTexture(SantaPigEntity entity) {
-        return new Identifier("monkeysmod" , "textures/not_a_monsters/christmas_pig.png");
+        return new Identifier("monkeysmod" , "textures/not_a_monster/chrismas_pig.png");
     }
 
     @Override

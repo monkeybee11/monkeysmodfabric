@@ -45,7 +45,6 @@ public class Monkeysmodclient implements ClientModInitializer {
     public static final EntityModelLayer MODEL_PIZZA_TOPPING_LAYER = new EntityModelLayer(new Identifier("monkeysmod", "pizza_topping"), "main");
     public static final EntityModelLayer MODEL_CHRISMAS_TREE_LAYER = new EntityModelLayer(new Identifier("monkeysmod", "christmas_tree"), "main");
     public static final EntityModelLayer MODEL_SANTAPIG_LAYER = new EntityModelLayer(new Identifier("monkeysmod", "santa_pig"), "main");
-    
 
     @Override
     public void onInitializeClient() {
@@ -81,10 +80,7 @@ public class Monkeysmodclient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.SANTA_PIG, ChristmasPigRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayer.SANTA_PIG, Christmas_pig_model::getTexturedModelData);
 
-
-
-
-
+        
         BlockRenderLayerMap.INSTANCE.putBlock(Monkeysmod.MEAT_CROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(Monkeysmod.PINEAPPLE_CROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(Monkeysmod.COCONUT_CROP, RenderLayer.getCutout());

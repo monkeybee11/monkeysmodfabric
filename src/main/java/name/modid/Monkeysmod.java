@@ -90,6 +90,7 @@ public class Monkeysmod implements ModInitializer {
 	public static final Item MEAT_SPAWN_EGG = new SpawnEggItem(ModEntities.MEATMONSTER, 135653, 23521, new FabricItemSettings());
 	public static final Item PIZZABOSS_SPAWN_EGG = new SpawnEggItem(ModEntities.PIZZABOSS, 121212, 212121, new FabricItemSettings());
 	public static final Item MINCE_PIE_EGG = new SpawnEggItem(ModEntities.MINCEPIE, 12321, 23432, new FabricItemSettings());
+	public static final Item SANTA_PIG_SPAWN_EGG = new SpawnEggItem(ModEntities.SANTA_PIG, 12322, 121212,new FabricItemSettings());
 	public static final William_tell_apple WILLIAM_TELL_APPLE = new William_tell_apple(new  FabricItemSettings());
 	public static final Frozen_apple_item FROZEN_APPLE_ITEM = new Frozen_apple_item(new FabricItemSettings(), 0, 0);
 	public static final Pineapple PINEAPPLE = new Pineapple(new FabricItemSettings());
@@ -160,7 +161,7 @@ public class Monkeysmod implements ModInitializer {
 		entries.add(MINCE_PIE_ITEM);
 		entries.add(MINCE_PIE_EGG);
 		entries.add(SEED_WAND);
-		entries.add(MEAT_CROP);   // its crashing here ????? randomly
+		entries.add(MEAT_CROP);
 		entries.add(PINEAPPLE_CROP);
 		entries.add(MINCE_PIE_CROP);
 		entries.add(COCONUT_CROP);
@@ -171,7 +172,7 @@ public class Monkeysmod implements ModInitializer {
 		entries.add(COOKIE_PLATE_WOOD);
 		entries.add(STOCKING);
 		entries.add(SANTAS_LIST);
-	
+		entries.add(SANTA_PIG_SPAWN_EGG);
 	}).build();	
 
 
@@ -227,10 +228,6 @@ public class Monkeysmod implements ModInitializer {
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "banana_bunch"), new BlockItem(BANANA_BUNCH, new FabricItemSettings()));
 		CompostingChanceRegistry.INSTANCE.add(BANANA_PEEL, (float) 20);
 		CompostingChanceRegistry.INSTANCE.add(PINEAPPLE_STEM, (float) 20);
-		CompostingChanceRegistry.INSTANCE.add(MEAT_CROP, (float) 3);
-		CompostingChanceRegistry.INSTANCE.add(PINEAPPLE_CROP, (float) 6);
-		CompostingChanceRegistry.INSTANCE.add(MINCE_PIE_CROP, (float) 10);
-		CompostingChanceRegistry.INSTANCE.add(COCONUT_CROP, (float) 18);
 		FabricDefaultAttributeRegistry.register(ModEntities.BANANAMONSTER, BananaEntity.createBananaAttributeBuilder());
 		FabricDefaultAttributeRegistry.register(ModEntities.APPLEMONSTER, AppleEntity.createAppleAttributeBuilder());
 		FabricDefaultAttributeRegistry.register(ModEntities.PINEAPPLEMONSTER, PineappleEntity.createPineappleAttributeBuilder());
@@ -291,5 +288,6 @@ public class Monkeysmod implements ModInitializer {
 		Registry.register(Registries.BLOCK, new Identifier("monkeysmod", "stocking"), STOCKING);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "stocking"),new BlockItem(STOCKING, new FabricItemSettings()));
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "santa_list"), SANTAS_LIST);
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "santa_pig_spawn_egg"), SANTA_PIG_SPAWN_EGG);
 	}
 }

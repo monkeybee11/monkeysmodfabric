@@ -59,6 +59,8 @@
     "entity.monkeysmod.christmas_tree": "christmas tree",
     "block.monkeysmod.cookie_plate_wood": "wooden cookie plate",
     "block.monkeysmod.stocking": "stocking",
-    "item.monkeysmod.santa_list": "a copy of santas list"
+    "item.monkeysmod.santa_list": "a copy of santas list",
+    "entity.monkeysmod.santa_pig": "santa pig",
+    "item.monkeysmod.santa_pig_spawn_egg": "santa pig spawn egg"
     
 }
