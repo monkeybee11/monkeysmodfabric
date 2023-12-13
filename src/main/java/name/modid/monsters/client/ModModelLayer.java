@@ -32,4 +32,7 @@ public class ModModelLayer {
    public static final EntityModelLayer CHRISTMAS_TREE =
    new EntityModelLayer(new Identifier("monkeysmod", "christmas_tree"), "main");
 
+   public static final EntityModelLayer SANTA_PIG = 
+   new EntityModelLayer(new Identifier("monkeysmod", "santa_pig"), "main");
+
 }

@@ -1,0 +1,15 @@
+reballance food values
+
+look at the naughty nice list scores and edit them to be more rewarding punishing
+
+add more models for stocking
+
+look in to adding sounds
+
+update the coconut plant model
+
+animations for models 
+
+food chunks
+
+more comments 

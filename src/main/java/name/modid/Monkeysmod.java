@@ -24,10 +24,6 @@ import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
-
 import name.modid.block.Appleblock;
 import name.modid.block.Bananabunch;
 import name.modid.block.Cheese_block;
@@ -76,11 +72,10 @@ import name.modid.monsters.custom.MeatEntity;
 import name.modid.monsters.custom.MincepieEntity;
 import name.modid.monsters.custom.PineappleEntity;
 import name.modid.monsters.custom.PizzaBoss;
+import name.modid.monsters.custom.SantaPigEntity;
 import name.modid.world.gen.ModEntityGeneration;
 
 public class Monkeysmod implements ModInitializer {
-
-	static Map<UUID, Integer> playerData = new HashMap<>();
 
 	public static final Banana BANANA = new Banana(new FabricItemSettings());
 	public static final Peeled_banana PEELED_BANANA = new Peeled_banana(new FabricItemSettings());
@@ -127,7 +122,7 @@ public class Monkeysmod implements ModInitializer {
 	public static final Pizza_shield PIZZA_SHIELD = new Pizza_shield(new FabricItemSettings().maxDamage(336));
 	public static final Cookie_plate_wood COOKIE_PLATE_WOOD = new Cookie_plate_wood(FabricBlockSettings.create().strength(1.0f).nonOpaque());
 	public static final Stocking STOCKING = new Stocking(FabricBlockSettings.create().strength(1.0f).nonOpaque());
-    public static final Copy_of_santas_list SANTAS_LIST = new Copy_of_santas_list(new FabricItemSettings(), playerData);
+    public static final Copy_of_santas_list SANTAS_LIST = new Copy_of_santas_list(new FabricItemSettings());
 
 	
 
@@ -165,7 +160,7 @@ public class Monkeysmod implements ModInitializer {
 		entries.add(MINCE_PIE_ITEM);
 		entries.add(MINCE_PIE_EGG);
 		entries.add(SEED_WAND);
-		entries.add(MEAT_CROP);
+		entries.add(MEAT_CROP);   // its crashing here ????? randomly
 		entries.add(PINEAPPLE_CROP);
 		entries.add(MINCE_PIE_CROP);
 		entries.add(COCONUT_CROP);
@@ -201,6 +196,7 @@ public class Monkeysmod implements ModInitializer {
 		});
 
 
+
 		LootTableEvents.MODIFY.register((resourceManager, lootManager, id, supplier, setter) -> {
 			if (VILLAGER_CHEST_LOOT_TABLE_ID.equals(id)) {
 				LootPool.Builder poolBuilder = LootPool.builder()
@@ -231,6 +227,10 @@ public class Monkeysmod implements ModInitializer {
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "banana_bunch"), new BlockItem(BANANA_BUNCH, new FabricItemSettings()));
 		CompostingChanceRegistry.INSTANCE.add(BANANA_PEEL, (float) 20);
 		CompostingChanceRegistry.INSTANCE.add(PINEAPPLE_STEM, (float) 20);
+		CompostingChanceRegistry.INSTANCE.add(MEAT_CROP, (float) 3);
+		CompostingChanceRegistry.INSTANCE.add(PINEAPPLE_CROP, (float) 6);
+		CompostingChanceRegistry.INSTANCE.add(MINCE_PIE_CROP, (float) 10);
+		CompostingChanceRegistry.INSTANCE.add(COCONUT_CROP, (float) 18);
 		FabricDefaultAttributeRegistry.register(ModEntities.BANANAMONSTER, BananaEntity.createBananaAttributeBuilder());
 		FabricDefaultAttributeRegistry.register(ModEntities.APPLEMONSTER, AppleEntity.createAppleAttributeBuilder());
 		FabricDefaultAttributeRegistry.register(ModEntities.PINEAPPLEMONSTER, PineappleEntity.createPineappleAttributeBuilder());
@@ -239,6 +239,7 @@ public class Monkeysmod implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.MINCEPIE, MincepieEntity.createMincepieAttributeBuilder());
 		FabricDefaultAttributeRegistry.register(ModEntities.PIZZABOSS, PizzaBoss.createPizzaBossAttributeBuilder());
 		FabricDefaultAttributeRegistry.register(ModEntities.CHRISTMAS_TREE, ChristmasTreeEntity.createChristmasTreeAttributeBuilder());
+		FabricDefaultAttributeRegistry.register(ModEntities.SANTA_PIG, SantaPigEntity.createSantaPigAttributeBuilder());
 		ModCustomTrades.registerCustomTrades();
 		ModEntityGeneration.addSpawns();
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "william_tell_apple"), WILLIAM_TELL_APPLE);

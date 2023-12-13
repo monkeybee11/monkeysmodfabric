@@ -7,6 +7,7 @@ import name.modid.monsters.custom.MeatEntity;
 import name.modid.monsters.custom.MincepieEntity;
 import name.modid.monsters.custom.PineappleEntity;
 import name.modid.monsters.custom.PizzaBoss;
+import name.modid.monsters.custom.SantaPigEntity;
 import name.modid.monsters.pizzatopping.PizzaTopping;
 import name.modid.monsters.custom.AppleEntity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
@@ -64,6 +65,11 @@ public class ModEntities {
                 new Identifier("monkeysmod", "christmas_tree"),
                 FabricEntityTypeBuilder.create(SpawnGroup.MISC, ChristmasTreeEntity::new)
                         .dimensions(EntityDimensions.fixed(1, 2)).build());
+
+        public static final EntityType<SantaPigEntity> SANTA_PIG = Registry.register(Registries.ENTITY_TYPE,
+                new Identifier("monkeysmod", "santa_pig"),
+                FabricEntityTypeBuilder.create(SpawnGroup.MISC, SantaPigEntity::new)
+                        .dimensions(EntityDimensions.fixed(0.9f, 0.9f)).build());
 
                 
 
