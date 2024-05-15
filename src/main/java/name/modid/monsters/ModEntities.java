@@ -1,6 +1,7 @@
 package name.modid.monsters;
 
 import name.modid.monsters.custom.BananaEntity;
+import name.modid.monsters.custom.CherryBombEntity;
 import name.modid.monsters.custom.ChristmasTreeEntity;
 import name.modid.monsters.custom.CoconutEntity;
 import name.modid.monsters.custom.MeatEntity;
@@ -71,6 +72,8 @@ public class ModEntities {
                 FabricEntityTypeBuilder.create(SpawnGroup.MISC, SantaPigEntity::new)
                         .dimensions(EntityDimensions.fixed(0.9f, 0.9f)).build());
 
-                
-
+        public static final EntityType<CherryBombEntity> CHERRY_BOMB = Registry.register(Registries.ENTITY_TYPE,
+                new Identifier("monkeysmod", "cherry_bomb"),
+                FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, CherryBombEntity::new)
+                        .dimensions(EntityDimensions.fixed(1, 1.4f)).build());
 }

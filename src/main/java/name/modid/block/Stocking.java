@@ -18,17 +18,20 @@ import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldAccess;
 
 public class Stocking extends Block {
 
     public static final IntProperty AGE = Properties.AGE_1;
     private static final VoxelShape SHAPE = VoxelShapes.fullCube();
+    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(2, ItemStack.EMPTY);
 
     public Stocking(Settings settings) {
         super(settings);
@@ -95,5 +98,22 @@ public class Stocking extends Block {
         }
         return ActionResult.PASS; // Add this line
     }
+
+    public DefaultedList<ItemStack> getInventory() {
+        return this.inventory;
+    }
+
+    @Override
+    public void onBroken(WorldAccess world, BlockPos pos, BlockState state) {
+
+        for (ItemStack itemStack : this.getInventory()) {
+            if (!itemStack.isEmpty()) {
+                Stocking.dropStack((World) world, pos, itemStack);
+            }
+        }
+
+        super.onBroken(world, pos, state);
+    }
+
 }
 

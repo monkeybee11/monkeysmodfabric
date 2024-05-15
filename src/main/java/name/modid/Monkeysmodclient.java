@@ -5,6 +5,8 @@ import name.modid.monsters.client.AppleEntityModel;
 import name.modid.monsters.client.AppleEntityRenderer;
 import name.modid.monsters.client.BananaEntityModel;
 import name.modid.monsters.client.BananaEntityRenderer;
+import name.modid.monsters.client.CherryBombEntityModel;
+import name.modid.monsters.client.CherryBombEntityRenderer;
 import name.modid.monsters.client.ChristmasPigRenderer;
 import name.modid.monsters.client.ChristmasTreeRenderer;
 import name.modid.monsters.client.Christmas_pig_model;
@@ -45,6 +47,7 @@ public class Monkeysmodclient implements ClientModInitializer {
     public static final EntityModelLayer MODEL_PIZZA_TOPPING_LAYER = new EntityModelLayer(new Identifier("monkeysmod", "pizza_topping"), "main");
     public static final EntityModelLayer MODEL_CHRISMAS_TREE_LAYER = new EntityModelLayer(new Identifier("monkeysmod", "christmas_tree"), "main");
     public static final EntityModelLayer MODEL_SANTAPIG_LAYER = new EntityModelLayer(new Identifier("monkeysmod", "santa_pig"), "main");
+    public static final EntityModelLayer MODEL_CHERRYBOMB_LAYER = new EntityModelLayer(new Identifier("monkeysmod", "cherry_bomb"), "main");
 
     @Override
     public void onInitializeClient() {
@@ -79,6 +82,9 @@ public class Monkeysmodclient implements ClientModInitializer {
 
         EntityRendererRegistry.register(ModEntities.SANTA_PIG, ChristmasPigRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayer.SANTA_PIG, Christmas_pig_model::getTexturedModelData);
+
+        EntityRendererRegistry.register(ModEntities.CHERRY_BOMB, CherryBombEntityRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayer.CHERRY_BOMB, CherryBombEntityModel::getTexturedModelData);
 
         
         BlockRenderLayerMap.INSTANCE.putBlock(Monkeysmod.MEAT_CROP, RenderLayer.getCutout());

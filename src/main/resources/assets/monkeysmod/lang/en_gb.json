@@ -61,6 +61,8 @@
     "block.monkeysmod.stocking": "stocking",
     "item.monkeysmod.santa_list": "a copy of santas list",
     "entity.monkeysmod.santa_pig": "santa pig",
-    "item.monkeysmod.santa_pig_spawn_egg": "santa pig spawn egg"
+    "item.monkeysmod.santa_pig_spawn_egg": "santa pig spawn egg",
+    "entity.monkeysmod.cherry_bomb": "cherry",
+    "item.monkeysmod.cherry_bomb_egg": "cherry spawn egg"
     
 }

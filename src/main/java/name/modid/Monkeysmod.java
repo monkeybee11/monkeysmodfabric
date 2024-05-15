@@ -66,6 +66,7 @@ import name.modid.items.Seed_wand;
 import name.modid.monsters.ModEntities;
 import name.modid.monsters.custom.AppleEntity;
 import name.modid.monsters.custom.BananaEntity;
+import name.modid.monsters.custom.CherryBombEntity;
 import name.modid.monsters.custom.ChristmasTreeEntity;
 import name.modid.monsters.custom.CoconutEntity;
 import name.modid.monsters.custom.MeatEntity;
@@ -91,6 +92,7 @@ public class Monkeysmod implements ModInitializer {
 	public static final Item PIZZABOSS_SPAWN_EGG = new SpawnEggItem(ModEntities.PIZZABOSS, 121212, 212121, new FabricItemSettings());
 	public static final Item MINCE_PIE_EGG = new SpawnEggItem(ModEntities.MINCEPIE, 12321, 23432, new FabricItemSettings());
 	public static final Item SANTA_PIG_SPAWN_EGG = new SpawnEggItem(ModEntities.SANTA_PIG, 12322, 121212,new FabricItemSettings());
+	public static final Item CHERRY_BOMB_SPAWN_EGG = new SpawnEggItem(ModEntities.CHERRY_BOMB, 12332, 23332,new FabricItemSettings());
 	public static final William_tell_apple WILLIAM_TELL_APPLE = new William_tell_apple(new  FabricItemSettings());
 	public static final Frozen_apple_item FROZEN_APPLE_ITEM = new Frozen_apple_item(new FabricItemSettings(), 0, 0);
 	public static final Pineapple PINEAPPLE = new Pineapple(new FabricItemSettings());
@@ -173,6 +175,7 @@ public class Monkeysmod implements ModInitializer {
 		entries.add(STOCKING);
 		entries.add(SANTAS_LIST);
 		entries.add(SANTA_PIG_SPAWN_EGG);
+		entries.add(CHERRY_BOMB_SPAWN_EGG);
 	}).build();	
 
 
@@ -237,6 +240,7 @@ public class Monkeysmod implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.PIZZABOSS, PizzaBoss.createPizzaBossAttributeBuilder());
 		FabricDefaultAttributeRegistry.register(ModEntities.CHRISTMAS_TREE, ChristmasTreeEntity.createChristmasTreeAttributeBuilder());
 		FabricDefaultAttributeRegistry.register(ModEntities.SANTA_PIG, SantaPigEntity.createSantaPigAttributeBuilder());
+		FabricDefaultAttributeRegistry.register(ModEntities.CHERRY_BOMB, CherryBombEntity.createCherryAttributeBuilder());
 		ModCustomTrades.registerCustomTrades();
 		ModEntityGeneration.addSpawns();
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "william_tell_apple"), WILLIAM_TELL_APPLE);
@@ -289,5 +293,6 @@ public class Monkeysmod implements ModInitializer {
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "stocking"),new BlockItem(STOCKING, new FabricItemSettings()));
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "santa_list"), SANTAS_LIST);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "santa_pig_spawn_egg"), SANTA_PIG_SPAWN_EGG);
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "cherry_bomb_egg"), CHERRY_BOMB_SPAWN_EGG);
 	}
 }
