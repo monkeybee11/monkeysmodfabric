@@ -6,7 +6,7 @@ import net.minecraft.item.Item;
 public class Coconut_food extends Item {
 
     public Coconut_food(Settings settings) {
-        super(new Item.Settings().food((new FoodComponent.Builder().hunger(3).saturationModifier(0.6f)).snack().build()));
+        super(new Item.Settings().food((new FoodComponent.Builder().hunger(7).saturationModifier(0.6f)).snack().build()));
     }
 
 }

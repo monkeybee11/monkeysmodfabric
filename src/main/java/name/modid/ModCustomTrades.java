@@ -17,12 +17,17 @@ public class ModCustomTrades {
             factories.add((entity, random) -> new TradeOffer(
                 new ItemStack(Items.EMERALD, random.nextInt(30) + 4),
                 new ItemStack(Monkeysmod.CARROT_DRILL, 1),
-                6, 4, 0.5f
+                1, 4, 0.05f
             ));
             factories.add((entity, random) -> new TradeOffer(
                 new ItemStack(Items.EMERALD, random.nextInt(2) +3),
                 new ItemStack(Monkeysmod.SEED_WAND, 1),
-                6, 4, 0.5f
+                1, 4, 0.05f
+            ));
+            factories.add((entity, random) -> new TradeOffer(
+                new ItemStack(Items.EMERALD, random.nextInt(30) + 4),
+                new ItemStack(Monkeysmod.DIGGER, 1),
+                1, 4, 0.05f
             ));
         });
     }

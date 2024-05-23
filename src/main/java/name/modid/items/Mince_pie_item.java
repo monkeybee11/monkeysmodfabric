@@ -6,7 +6,7 @@ import net.minecraft.item.Item;
 public class Mince_pie_item extends Item {
 
     public Mince_pie_item(Settings settings) {
-        super(new Item.Settings().food((new FoodComponent.Builder().hunger(2).saturationModifier(0.3f)).snack().build()));
+        super(new Item.Settings().food((new FoodComponent.Builder().hunger(8).saturationModifier(0.8f)).snack().build()));
     }
 
 }

@@ -1,5 +1,3 @@
-reballance food values
-
 look at the naughty nice list scores and edit them to be more rewarding punishing
 
 add more models for stocking
@@ -13,3 +11,5 @@ animations for models
 food chunks
 
 more comments 
+
+change cherry bombs to not destroy blocks when they exsplode08

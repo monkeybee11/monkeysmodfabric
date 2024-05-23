@@ -17,6 +17,7 @@ import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterials;
 import net.minecraft.loot.LootPool;
+import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.registry.Registries;
@@ -29,6 +30,7 @@ import name.modid.block.Bananabunch;
 import name.modid.block.Cheese_block;
 import name.modid.block.Coconut_crop;
 import name.modid.block.Cookie_plate_wood;
+import name.modid.block.Head_printer;
 import name.modid.block.Meat_crop;
 import name.modid.block.Milk_cauldron;
 import name.modid.block.Mince_pie_crop;
@@ -36,12 +38,15 @@ import name.modid.block.Pineapple_crop;
 import name.modid.block.Pizza_block;
 import name.modid.block.Stocking;
 import name.modid.block.Wheelie_bin;
+import name.modid.event.Bubble_bottleing;
 import name.modid.event.Cheese_cauldron_event;
 import name.modid.event.Christmas_tree_event;
 import name.modid.event.naughty_nice_list_event;
 import name.modid.event.Santa_event;
 import name.modid.event.Stocking_event;
+import name.modid.event.Wash_Skull;
 import name.modid.items.Banana;
+import name.modid.items.Bubble_bottle;
 import name.modid.items.Carrot_drill;
 import name.modid.items.Coconut_food;
 import name.modid.items.Coconut_shell;
@@ -62,6 +67,7 @@ import name.modid.items.Mince_pie_item;
 import name.modid.items.Raw_pizza;
 import name.modid.items.Cooked_pizza;
 import name.modid.items.Copy_of_santas_list;
+import name.modid.items.Digger;
 import name.modid.items.Seed_wand;
 import name.modid.monsters.ModEntities;
 import name.modid.monsters.custom.AppleEntity;
@@ -126,8 +132,9 @@ public class Monkeysmod implements ModInitializer {
 	public static final Cookie_plate_wood COOKIE_PLATE_WOOD = new Cookie_plate_wood(FabricBlockSettings.create().strength(1.0f).nonOpaque());
 	public static final Stocking STOCKING = new Stocking(FabricBlockSettings.create().strength(1.0f).nonOpaque());
     public static final Copy_of_santas_list SANTAS_LIST = new Copy_of_santas_list(new FabricItemSettings());
-
-	
+	public static final Digger DIGGER = new Digger(ToolMaterials.DIAMOND, 0, 0, new FabricItemSettings());
+	public static final Head_printer HEAD_PRINTER = new Head_printer(FabricBlockSettings.create().strength(1.0f).nonOpaque());
+	public static final Bubble_bottle BUBBLE_BOTTLE = new Bubble_bottle( new FabricItemSettings());
 
 	//this is my tab in the creative menu
 	private static final ItemGroup ITEM_GROUP = FabricItemGroup.builder().icon(() -> new ItemStack(BANANA)).displayName(Text.translatable("itemgroup.monkeysmod_itemgroup")).entries((context, entries) -> {
@@ -176,8 +183,11 @@ public class Monkeysmod implements ModInitializer {
 		entries.add(SANTAS_LIST);
 		entries.add(SANTA_PIG_SPAWN_EGG);
 		entries.add(CHERRY_BOMB_SPAWN_EGG);
-	}).build();	
+		entries.add(DIGGER);
+		entries.add(HEAD_PRINTER);
+		entries.add(BUBBLE_BOTTLE);
 
+	}).build();	
 
 	@Override
 	public void onInitialize() {
@@ -187,8 +197,8 @@ public class Monkeysmod implements ModInitializer {
 		Santa_event.register();
 		new Stocking_event().onInitialize();
 		new naughty_nice_list_event().onInitialize();
-
-
+		new Bubble_bottleing().onInitialize();
+		new Wash_Skull().onInitialize();
 
 		//no more accadental budding braking
 		PlayerBlockBreakEvents.AFTER.register((world, player, pos, state, blockEntity) -> {
@@ -199,17 +209,17 @@ public class Monkeysmod implements ModInitializer {
 			}
 		});
 
-
-
 		LootTableEvents.MODIFY.register((resourceManager, lootManager, id, supplier, setter) -> {
 			if (VILLAGER_CHEST_LOOT_TABLE_ID.equals(id)) {
 				LootPool.Builder poolBuilder = LootPool.builder()
+				.conditionally(RandomChanceLootCondition.builder(0.5f))
 					.rolls(ConstantLootNumberProvider.create(1))
 					.with(ItemEntry.builder(Monkeysmod.CARROT_DRILL));
 		
 				supplier.pool(poolBuilder);
 			} else if (ANCHENT_CHEST_LOOT_TABLE_ID.equals(id)) {
 				LootPool.Builder poolBuilder = LootPool.builder()
+					.conditionally(RandomChanceLootCondition.builder(0.10f))
 					.rolls(ConstantLootNumberProvider.create(1))
 					.with(ItemEntry.builder(Monkeysmod.GOLDEN_CARROT_DRILL));
 		
@@ -217,11 +227,7 @@ public class Monkeysmod implements ModInitializer {
 			}
 		});
 		
-		
-		
-
 		Registry.register(Registries.ITEM_GROUP, new Identifier("monkeysmod", "monkeysmod"), ITEM_GROUP);
-
 
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "banana"), BANANA);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "banana_peel"), BANANA_PEEL);
@@ -294,5 +300,9 @@ public class Monkeysmod implements ModInitializer {
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "santa_list"), SANTAS_LIST);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "santa_pig_spawn_egg"), SANTA_PIG_SPAWN_EGG);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "cherry_bomb_egg"), CHERRY_BOMB_SPAWN_EGG);
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "digger"), DIGGER);
+		Registry.register(Registries.BLOCK, new Identifier("monkeysmod", "head_printer"), HEAD_PRINTER);
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "head_printer"), new BlockItem(HEAD_PRINTER, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "bubble_bottle"), BUBBLE_BOTTLE);
 	}
 }

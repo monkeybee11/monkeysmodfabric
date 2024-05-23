@@ -63,6 +63,9 @@
     "entity.monkeysmod.santa_pig": "santa pig",
     "item.monkeysmod.santa_pig_spawn_egg": "santa pig spawn egg",
     "entity.monkeysmod.cherry_bomb": "cherry",
-    "item.monkeysmod.cherry_bomb_egg": "cherry spawn egg"
+    "item.monkeysmod.cherry_bomb_egg": "cherry spawn egg",
+    "item.monkeysmod.digger": "dirt destroyer 9000",
+    "item.monkeysmod.head_printer" : "head printer",
+    "item.monkeysmod.bubble_bottle": "bottled bubbles"
     
 }

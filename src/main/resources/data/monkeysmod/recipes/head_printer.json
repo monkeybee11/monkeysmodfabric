@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#O#",
+        "SDS",
+        "___"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:rail"
+        },
+        "O": {
+            "item": "minecraft:oak_wood"
+        },
+        "S": {
+            "item": "minecraft:sticky_piston"
+        },
+        "D": {
+            "item": "minecraft:dispenser"
+        },
+        "_": {
+            "item": "minecraft:smooth_stone_slab"
+        }
+    },
+    "result": {
+        "item": "monkeysmod:head_printer",
+        "count": 1
+    }
+}

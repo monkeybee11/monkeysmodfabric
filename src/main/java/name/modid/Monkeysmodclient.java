@@ -91,5 +91,6 @@ public class Monkeysmodclient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(Monkeysmod.PINEAPPLE_CROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(Monkeysmod.COCONUT_CROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(Monkeysmod.COOKIE_PLATE_WOOD, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(Monkeysmod.HEAD_PRINTER, RenderLayer.getCutout());
     }
 }
