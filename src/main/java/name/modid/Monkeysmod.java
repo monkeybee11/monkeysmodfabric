@@ -8,6 +8,8 @@ import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
+import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -46,6 +48,7 @@ import name.modid.event.Santa_event;
 import name.modid.event.Stocking_event;
 import name.modid.event.Wash_Skull;
 import name.modid.items.Banana;
+import name.modid.items.Banana_peel_item;
 import name.modid.items.Bubble_bottle;
 import name.modid.items.Carrot_drill;
 import name.modid.items.Coconut_food;
@@ -72,6 +75,7 @@ import name.modid.items.Seed_wand;
 import name.modid.monsters.ModEntities;
 import name.modid.monsters.custom.AppleEntity;
 import name.modid.monsters.custom.BananaEntity;
+import name.modid.monsters.custom.BananaPeelEntity;
 import name.modid.monsters.custom.CherryBombEntity;
 import name.modid.monsters.custom.ChristmasTreeEntity;
 import name.modid.monsters.custom.CoconutEntity;
@@ -86,7 +90,7 @@ public class Monkeysmod implements ModInitializer {
 
 	public static final Banana BANANA = new Banana(new FabricItemSettings());
 	public static final Peeled_banana PEELED_BANANA = new Peeled_banana(new FabricItemSettings());
-	public static final Item BANANA_PEEL = new Item(new FabricItemSettings());
+	public static final Banana_peel_item BANANA_PEEL = new Banana_peel_item(new FabricItemSettings(), 0, 0);
 	public static final Item BANANA_PICKER = new Item(new FabricItemSettings());
 	public static final Bananabunch BANANA_BUNCH = new Bananabunch(FabricBlockSettings.create().strength(1.0f));
 	public static final Milk_cauldron MILK_CAULDRON = new Milk_cauldron(FabricBlockSettings.create().strength(2.0F).nonOpaque().ticksRandomly());
@@ -135,6 +139,7 @@ public class Monkeysmod implements ModInitializer {
 	public static final Digger DIGGER = new Digger(ToolMaterials.DIAMOND, 0, 0, new FabricItemSettings());
 	public static final Head_printer HEAD_PRINTER = new Head_printer(FabricBlockSettings.create().strength(1.0f).nonOpaque());
 	public static final Bubble_bottle BUBBLE_BOTTLE = new Bubble_bottle( new FabricItemSettings());
+	public static final Block BLOCK_CHARCOAL = new Block(FabricBlockSettings.create());
 
 	//this is my tab in the creative menu
 	private static final ItemGroup ITEM_GROUP = FabricItemGroup.builder().icon(() -> new ItemStack(BANANA)).displayName(Text.translatable("itemgroup.monkeysmod_itemgroup")).entries((context, entries) -> {
@@ -186,6 +191,7 @@ public class Monkeysmod implements ModInitializer {
 		entries.add(DIGGER);
 		entries.add(HEAD_PRINTER);
 		entries.add(BUBBLE_BOTTLE);
+		entries.add(BLOCK_CHARCOAL);
 
 	}).build();	
 
@@ -247,6 +253,7 @@ public class Monkeysmod implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.CHRISTMAS_TREE, ChristmasTreeEntity.createChristmasTreeAttributeBuilder());
 		FabricDefaultAttributeRegistry.register(ModEntities.SANTA_PIG, SantaPigEntity.createSantaPigAttributeBuilder());
 		FabricDefaultAttributeRegistry.register(ModEntities.CHERRY_BOMB, CherryBombEntity.createCherryAttributeBuilder());
+		FabricDefaultAttributeRegistry.register(ModEntities.BANANAPEEL, BananaPeelEntity.createBananaPeelAttributes());
 		ModCustomTrades.registerCustomTrades();
 		ModEntityGeneration.addSpawns();
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "william_tell_apple"), WILLIAM_TELL_APPLE);
@@ -304,5 +311,9 @@ public class Monkeysmod implements ModInitializer {
 		Registry.register(Registries.BLOCK, new Identifier("monkeysmod", "head_printer"), HEAD_PRINTER);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "head_printer"), new BlockItem(HEAD_PRINTER, new FabricItemSettings()));
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "bubble_bottle"), BUBBLE_BOTTLE);
+		Registry.register(Registries.BLOCK, new Identifier("monkeysmod" , "charcoal_block"), BLOCK_CHARCOAL);
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "charcoal_block"), new BlockItem(BLOCK_CHARCOAL, new FabricItemSettings()));
+
+		FuelRegistry.INSTANCE.add(BLOCK_CHARCOAL, 16000);
 	}
 }

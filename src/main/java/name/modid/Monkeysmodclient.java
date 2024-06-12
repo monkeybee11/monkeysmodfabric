@@ -5,6 +5,8 @@ import name.modid.monsters.client.AppleEntityModel;
 import name.modid.monsters.client.AppleEntityRenderer;
 import name.modid.monsters.client.BananaEntityModel;
 import name.modid.monsters.client.BananaEntityRenderer;
+import name.modid.monsters.client.BananaPeelEntityModel;
+import name.modid.monsters.client.BananaPeelRenderer;
 import name.modid.monsters.client.CherryBombEntityModel;
 import name.modid.monsters.client.CherryBombEntityRenderer;
 import name.modid.monsters.client.ChristmasPigRenderer;
@@ -48,6 +50,7 @@ public class Monkeysmodclient implements ClientModInitializer {
     public static final EntityModelLayer MODEL_CHRISMAS_TREE_LAYER = new EntityModelLayer(new Identifier("monkeysmod", "christmas_tree"), "main");
     public static final EntityModelLayer MODEL_SANTAPIG_LAYER = new EntityModelLayer(new Identifier("monkeysmod", "santa_pig"), "main");
     public static final EntityModelLayer MODEL_CHERRYBOMB_LAYER = new EntityModelLayer(new Identifier("monkeysmod", "cherry_bomb"), "main");
+    public static final EntityModelLayer MODEL_BANANAPEEL_LAYER = new EntityModelLayer(new Identifier("monkeysmod", "banana_peel_entity"), "main");
 
     @Override
     public void onInitializeClient() {
@@ -85,6 +88,9 @@ public class Monkeysmodclient implements ClientModInitializer {
 
         EntityRendererRegistry.register(ModEntities.CHERRY_BOMB, CherryBombEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayer.CHERRY_BOMB, CherryBombEntityModel::getTexturedModelData);
+
+        EntityRendererRegistry.register(ModEntities.BANANAPEEL, BananaPeelRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayer.BANANAPEEL, BananaPeelEntityModel::getTexturedModelData);
 
         
         BlockRenderLayerMap.INSTANCE.putBlock(Monkeysmod.MEAT_CROP, RenderLayer.getCutout());

@@ -65,7 +65,7 @@ public class ChristmasTreeEntity extends LivingEntity {
 
     @Override
     public Arm getMainArm() {
-        return Arm.RIGHT; // Default to right-handed
+        return Arm.RIGHT;
     }
 
     @Override

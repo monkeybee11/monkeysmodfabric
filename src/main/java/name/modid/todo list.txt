@@ -13,3 +13,5 @@ food chunks
 more comments 
 
 change cherry bombs to not destroy blocks when they exsplode08
+
+FINISH THE LIGHTING CATCHER

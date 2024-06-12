@@ -38,4 +38,7 @@ public class ModModelLayer {
     public static final EntityModelLayer CHERRY_BOMB =
     new EntityModelLayer(new Identifier("monkeysmod", "cherry_bomb"), "main");
 
+    public static final EntityModelLayer BANANAPEEL =
+    new EntityModelLayer(new Identifier("monkeysmod", "banana_peel_entity"), "main");
+
 }

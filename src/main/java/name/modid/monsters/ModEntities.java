@@ -1,6 +1,7 @@
 package name.modid.monsters;
 
 import name.modid.monsters.custom.BananaEntity;
+import name.modid.monsters.custom.BananaPeelEntity;
 import name.modid.monsters.custom.CherryBombEntity;
 import name.modid.monsters.custom.ChristmasTreeEntity;
 import name.modid.monsters.custom.CoconutEntity;
@@ -76,4 +77,10 @@ public class ModEntities {
                 new Identifier("monkeysmod", "cherry_bomb"),
                 FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, CherryBombEntity::new)
                         .dimensions(EntityDimensions.fixed(1, 1.4f)).build());
+
+        public static final EntityType<BananaPeelEntity> BANANAPEEL = Registry.register(Registries.ENTITY_TYPE,
+                new Identifier("monkeysmod", "banana_peel_entity"),
+                FabricEntityTypeBuilder.create(SpawnGroup.MISC, BananaPeelEntity::new)
+                        .dimensions(EntityDimensions.fixed(0.5f, 0.5f)).build());
+
 }

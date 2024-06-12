@@ -66,6 +66,8 @@
     "item.monkeysmod.cherry_bomb_egg": "cherry spawn egg",
     "item.monkeysmod.digger": "dirt destroyer 9000",
     "item.monkeysmod.head_printer" : "head printer",
-    "item.monkeysmod.bubble_bottle": "bottled bubbles"
+    "item.monkeysmod.bubble_bottle": "bottled bubbles",
+    "block.monkeysmod.charcoal_block": "block of charcoal",
+    "entity.monkeysmod.banana_peel_entity": "banana peel"
     
 }
