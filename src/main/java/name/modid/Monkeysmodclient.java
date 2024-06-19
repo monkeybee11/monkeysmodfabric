@@ -34,11 +34,8 @@ import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.util.Identifier;
 
-
 public class Monkeysmodclient implements ClientModInitializer {
 
-    
-    
     public static final EntityModelLayer MODEL_BANANA_LAYER = new EntityModelLayer(new Identifier("monkeysmod", "banana_monster"), "main");
     public static final EntityModelLayer MODEL_APPLE_LAYER = new EntityModelLayer(new Identifier("monkeysmod", "apple_monster"), "main");
     public static final EntityModelLayer MODEL_PINEAPPLE_LAYER = new EntityModelLayer(new Identifier("monkeysmod", "pineapple_monster"), "main");
@@ -54,6 +51,9 @@ public class Monkeysmodclient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+
+        //BlockEntityRendererRegistry.register(Monkeysmod.MIMIC_BLOCK_ENTITY, Mimic_block_entity_renderer::new);
+
 
         EntityRendererRegistry.register(ModEntities.BANANAMONSTER, BananaEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayer.BANANAMONSTER, BananaEntityModel::getTexturedModelData);
@@ -76,8 +76,7 @@ public class Monkeysmodclient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.PIZZABOSS, PizzaBossRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayer.PIZZABOSS, PizzaBossModel::getTexturedModelData);
 
-
-        EntityRendererRegistry.register(ModEntities.PIZZA_TOPPING,(context) -> new PizzaToppingRenderer(context));
+        EntityRendererRegistry.register(ModEntities.PIZZA_TOPPING, (context) -> new PizzaToppingRenderer(context));
         EntityModelLayerRegistry.registerModelLayer(ModModelLayer.PIZZA_TOPPING, Pizza_Topping_model::getTexturedModelData);
 
         EntityRendererRegistry.register(ModEntities.CHRISTMAS_TREE, ChristmasTreeRenderer::new);
@@ -92,11 +91,12 @@ public class Monkeysmodclient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.BANANAPEEL, BananaPeelRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayer.BANANAPEEL, BananaPeelEntityModel::getTexturedModelData);
 
-        
         BlockRenderLayerMap.INSTANCE.putBlock(Monkeysmod.MEAT_CROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(Monkeysmod.PINEAPPLE_CROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(Monkeysmod.COCONUT_CROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(Monkeysmod.COOKIE_PLATE_WOOD, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(Monkeysmod.HEAD_PRINTER, RenderLayer.getCutout());
+     
+
     }
 }

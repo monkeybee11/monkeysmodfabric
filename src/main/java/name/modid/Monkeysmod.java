@@ -141,6 +141,7 @@ public class Monkeysmod implements ModInitializer {
 	public static final Bubble_bottle BUBBLE_BOTTLE = new Bubble_bottle( new FabricItemSettings());
 	public static final Block BLOCK_CHARCOAL = new Block(FabricBlockSettings.create());
 
+
 	//this is my tab in the creative menu
 	private static final ItemGroup ITEM_GROUP = FabricItemGroup.builder().icon(() -> new ItemStack(BANANA)).displayName(Text.translatable("itemgroup.monkeysmod_itemgroup")).entries((context, entries) -> {
 		entries.add(BANANA);
@@ -193,7 +194,8 @@ public class Monkeysmod implements ModInitializer {
 		entries.add(BUBBLE_BOTTLE);
 		entries.add(BLOCK_CHARCOAL);
 
-	}).build();	
+	}).build();
+	//public static final BlockEntityType<?> MIMIC_BLOCK_ENTITY = null;	
 
 	@Override
 	public void onInitialize() {
