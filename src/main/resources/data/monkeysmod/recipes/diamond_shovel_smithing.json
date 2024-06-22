@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:smithing_transform",
+    "template": {
+        "item": "minecraft:diamond_shovel"
+    },
+    "base": {
+        "item": "minecraft:gold_shovel"
+    },
+    "addition": {
+        "item": "minecraft:amethyst_shard"
+    },
+    "result": {
+        "item": "minecraft:diamond_shovel"
+    }
+}

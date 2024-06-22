@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:smithing_transform",
+    "template": {
+        "item": "minecraft:iron_sword"
+    },
+    "base": {
+        "item": "minecraft:stone_sword"
+    },
+    "addition": {
+        "item": "minecraft:amethyst_shard"
+    },
+    "result": {
+        "item": "minecraft:iron_sword"
+    }
+}

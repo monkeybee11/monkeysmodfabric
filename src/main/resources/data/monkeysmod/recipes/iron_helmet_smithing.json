@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:smithing_transform",
+    "template": {
+        "item": "minecraft:iron_helmet"
+    },
+    "base": {
+        "item": "minecraft:chainmail_helmet"
+    },
+    "addition": {
+        "item": "minecraft:amethyst_shard"
+    },
+    "result": {
+        "item": "minecraft:iron_helmet"
+    }
+}
