@@ -26,6 +26,8 @@ import name.modid.monsters.client.PizzaBossModel;
 import name.modid.monsters.client.PizzaBossRenderer;
 import name.modid.monsters.client.PizzaToppingRenderer;
 import name.modid.monsters.client.Pizza_Topping_model;
+import name.modid.monsters.client.TapeEntityModel;
+import name.modid.monsters.client.TapeRenderer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
@@ -48,12 +50,10 @@ public class Monkeysmodclient implements ClientModInitializer {
     public static final EntityModelLayer MODEL_SANTAPIG_LAYER = new EntityModelLayer(new Identifier("monkeysmod", "santa_pig"), "main");
     public static final EntityModelLayer MODEL_CHERRYBOMB_LAYER = new EntityModelLayer(new Identifier("monkeysmod", "cherry_bomb"), "main");
     public static final EntityModelLayer MODEL_BANANAPEEL_LAYER = new EntityModelLayer(new Identifier("monkeysmod", "banana_peel_entity"), "main");
+    public static final EntityModelLayer MODEL_TAPE_LAYER = new EntityModelLayer(new Identifier("monkeysmod", "tape_entity"), "main");
 
     @Override
     public void onInitializeClient() {
-
-        //BlockEntityRendererRegistry.register(Monkeysmod.MIMIC_BLOCK_ENTITY, Mimic_block_entity_renderer::new);
-
 
         EntityRendererRegistry.register(ModEntities.BANANAMONSTER, BananaEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayer.BANANAMONSTER, BananaEntityModel::getTexturedModelData);
@@ -90,6 +90,9 @@ public class Monkeysmodclient implements ClientModInitializer {
 
         EntityRendererRegistry.register(ModEntities.BANANAPEEL, BananaPeelRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayer.BANANAPEEL, BananaPeelEntityModel::getTexturedModelData);
+
+        EntityRendererRegistry.register(ModEntities.TAPE, TapeRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayer.TAPE,TapeEntityModel::getTexturedModelData);
 
         BlockRenderLayerMap.INSTANCE.putBlock(Monkeysmod.MEAT_CROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(Monkeysmod.PINEAPPLE_CROP, RenderLayer.getCutout());

@@ -68,6 +68,7 @@
     "block.monkeysmod.head_printer": "head printer",
     "item.monkeysmod.bubble_bottle": "bottled bubbles",
     "block.monkeysmod.charcoal_block": "block of charcoal",
-    "entity.monkeysmod.banana_peel_entity": "banana peel"
+    "entity.monkeysmod.banana_peel_entity": "banana peel",
+    "item.monkeysmod.tape_item": "tape mesher"
     
 }

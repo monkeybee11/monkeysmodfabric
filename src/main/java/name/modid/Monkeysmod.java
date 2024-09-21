@@ -72,6 +72,7 @@ import name.modid.items.Cooked_pizza;
 import name.modid.items.Copy_of_santas_list;
 import name.modid.items.Digger;
 import name.modid.items.Seed_wand;
+import name.modid.items.Tape;
 import name.modid.monsters.ModEntities;
 import name.modid.monsters.custom.AppleEntity;
 import name.modid.monsters.custom.BananaEntity;
@@ -84,6 +85,7 @@ import name.modid.monsters.custom.MincepieEntity;
 import name.modid.monsters.custom.PineappleEntity;
 import name.modid.monsters.custom.PizzaBoss;
 import name.modid.monsters.custom.SantaPigEntity;
+import name.modid.monsters.custom.TapeEntity;
 import name.modid.world.gen.ModEntityGeneration;
 
 public class Monkeysmod implements ModInitializer {
@@ -140,6 +142,8 @@ public class Monkeysmod implements ModInitializer {
 	public static final Head_printer HEAD_PRINTER = new Head_printer(FabricBlockSettings.create().strength(1.0f).nonOpaque());
 	public static final Bubble_bottle BUBBLE_BOTTLE = new Bubble_bottle( new FabricItemSettings());
 	public static final Block BLOCK_CHARCOAL = new Block(FabricBlockSettings.create());
+	public static final Tape TAPE_ITEM = new Tape(new FabricItemSettings());
+	private static final Identifier DUGEON_CHEST_LOOT_TABLE_ID = new Identifier("minecraft", "chests/simple_dungeon");
 
 
 	//this is my tab in the creative menu
@@ -193,9 +197,9 @@ public class Monkeysmod implements ModInitializer {
 		entries.add(HEAD_PRINTER);
 		entries.add(BUBBLE_BOTTLE);
 		entries.add(BLOCK_CHARCOAL);
+		entries.add(TAPE_ITEM);
 
 	}).build();
-	//public static final BlockEntityType<?> MIMIC_BLOCK_ENTITY = null;	
 
 	@Override
 	public void onInitialize() {
@@ -232,7 +236,15 @@ public class Monkeysmod implements ModInitializer {
 					.with(ItemEntry.builder(Monkeysmod.GOLDEN_CARROT_DRILL));
 		
 				supplier.pool(poolBuilder);
+			} else if (DUGEON_CHEST_LOOT_TABLE_ID.equals(id)) {
+				LootPool.Builder poolBuilder = LootPool.builder()
+					.conditionally(RandomChanceLootCondition.builder(0.5f))
+					.rolls(ConstantLootNumberProvider.create(1))
+					.with(ItemEntry.builder(Monkeysmod.DIGGER));
+			
+				supplier.pool(poolBuilder);
 			}
+			
 		});
 		
 		Registry.register(Registries.ITEM_GROUP, new Identifier("monkeysmod", "monkeysmod"), ITEM_GROUP);
@@ -256,6 +268,7 @@ public class Monkeysmod implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.SANTA_PIG, SantaPigEntity.createSantaPigAttributeBuilder());
 		FabricDefaultAttributeRegistry.register(ModEntities.CHERRY_BOMB, CherryBombEntity.createCherryAttributeBuilder());
 		FabricDefaultAttributeRegistry.register(ModEntities.BANANAPEEL, BananaPeelEntity.createBananaPeelAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.TAPE, TapeEntity.createTapeAttributeBuilder());
 		ModCustomTrades.registerCustomTrades();
 		ModEntityGeneration.addSpawns();
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "william_tell_apple"), WILLIAM_TELL_APPLE);
@@ -315,6 +328,8 @@ public class Monkeysmod implements ModInitializer {
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "bubble_bottle"), BUBBLE_BOTTLE);
 		Registry.register(Registries.BLOCK, new Identifier("monkeysmod" , "charcoal_block"), BLOCK_CHARCOAL);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "charcoal_block"), new BlockItem(BLOCK_CHARCOAL, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "tape_item"), TAPE_ITEM);
+
 
 		FuelRegistry.INSTANCE.add(BLOCK_CHARCOAL, 16000);
 	}

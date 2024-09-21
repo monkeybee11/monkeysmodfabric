@@ -10,6 +10,7 @@ import name.modid.monsters.custom.MincepieEntity;
 import name.modid.monsters.custom.PineappleEntity;
 import name.modid.monsters.custom.PizzaBoss;
 import name.modid.monsters.custom.SantaPigEntity;
+import name.modid.monsters.custom.TapeEntity;
 import name.modid.monsters.pizzatopping.PizzaTopping;
 import name.modid.monsters.custom.AppleEntity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
@@ -81,6 +82,11 @@ public class ModEntities {
         public static final EntityType<BananaPeelEntity> BANANAPEEL = Registry.register(Registries.ENTITY_TYPE,
                 new Identifier("monkeysmod", "banana_peel_entity"),
                 FabricEntityTypeBuilder.create(SpawnGroup.MISC, BananaPeelEntity::new)
+                        .dimensions(EntityDimensions.fixed(0.5f, 0.5f)).build());
+
+        public static final EntityType<TapeEntity> TAPE = Registry.register(Registries.ENTITY_TYPE,
+                new Identifier("monkeysmod", "tape_entity"),
+                FabricEntityTypeBuilder.create(SpawnGroup.MISC, TapeEntity::new)
                         .dimensions(EntityDimensions.fixed(0.5f, 0.5f)).build());
 
 }

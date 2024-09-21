@@ -41,4 +41,7 @@ public class ModModelLayer {
     public static final EntityModelLayer BANANAPEEL =
     new EntityModelLayer(new Identifier("monkeysmod", "banana_peel_entity"), "main");
 
+    public static final EntityModelLayer TAPE =
+    new EntityModelLayer(new Identifier("monkeysmod", "tape_entity"), "main");
+
 }
