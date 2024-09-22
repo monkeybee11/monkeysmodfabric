@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " # ",
+        "#Y#",
+        "PSI"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:black_dye"
+        },
+        "Y": {
+            "item": "minecraft:yellow_dye"
+        },
+        "P": {
+            "item": "minecraft:paper"
+        },
+        "S": {
+            "item": "minecraft:string"
+        },
+        "I": {
+            "item": "minecraft:iron_nugget"
+        }
+    },
+    "result": {"item": "monkeysmod:tape_item", "count": 1}
+}
