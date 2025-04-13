@@ -4,14 +4,8 @@ add more models for stocking
 
 look in to adding sounds
 
-update the coconut plant model
-
 animations for models 
 
-food chunks
-
-more comments 
-
-change cherry bombs to not destroy blocks when they exsplode08
+more comments
 
 FINISH THE LIGHTING CATCHER

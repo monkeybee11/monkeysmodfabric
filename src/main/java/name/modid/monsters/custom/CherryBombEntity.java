@@ -50,14 +50,23 @@ public class CherryBombEntity extends CreeperEntity {
     private void explode() {
         float f = this.shouldRenderOverlay() ? 2.0f : 1.0f;
         this.dead = true;
-        this.getWorld().createExplosion(this, this.getX(), this.getY(), this.getZ(), (float)this.explosionRadius * f, World.ExplosionSourceType.MOB);
-    
+
+        // Create an explosion that damages entities but does not destroy blocks
+        this.getWorld().createExplosion(
+            this, 
+            this.getX(), 
+            this.getY(), 
+            this.getZ(), 
+            (float) this.explosionRadius * f, 
+            World.ExplosionSourceType.NONE  // THIS set to NONE or it will brake blocks
+        );
+
         // Spawn cherry blossom particles
         for (int i = 0; i < 100; i++) {
             double motionX = this.random.nextGaussian() * 4.90;
             double motionY = this.random.nextGaussian() * 4.90;
             double motionZ = this.random.nextGaussian() * 4.90;
-    
+
             this.getWorld().addParticle(ParticleTypes.CHERRY_LEAVES,
                                         this.getX() + this.random.nextDouble() * this.getWidth() * 2.0 - this.getWidth(),
                                         this.getY() + this.getHeight() / 2.0 + this.random.nextDouble() * this.getHeight(),
@@ -72,7 +81,7 @@ public class CherryBombEntity extends CreeperEntity {
                                         (this.random.nextDouble() - 0.5) * 2.0, 
                                         (this.random.nextDouble() - 0.5) * 2.0);
         }
-        
+
         this.discard();
     }
     
