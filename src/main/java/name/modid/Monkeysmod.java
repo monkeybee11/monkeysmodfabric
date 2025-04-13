@@ -330,7 +330,6 @@ public class Monkeysmod implements ModInitializer {
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "charcoal_block"), new BlockItem(BLOCK_CHARCOAL, new FabricItemSettings()));
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "tape_item"), TAPE_ITEM);
 
-
 		FuelRegistry.INSTANCE.add(BLOCK_CHARCOAL, 16000);
 	}
 }

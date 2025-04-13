@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "# #",
+      "BTB",
+      " B "
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:white_wool"
+      },
+      "B": {
+        "item": "minecraft:bamboo"
+      },
+      "T": {
+        "item": "minecraft:tripwire_hook"
+      }
+    },
+    "result": { "item": "monkeysmod:banana_picker", "count": 1 }
+  }

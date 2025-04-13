@@ -1,11 +1,11 @@
 package name.modid.items;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.ToolMaterial;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -42,6 +42,6 @@ public class Carrot_drill extends PickaxeItem {
     @Override
     public boolean isSuitableFor(BlockState state) {
         // Prevent the pickaxe from breaking blocks that are ores
-        return !state.isOf(Blocks.COAL_ORE) && !state.isOf(Blocks.IRON_ORE) && !state.isOf(Blocks.GOLD_ORE) && !state.isOf(Blocks.DIAMOND_ORE) && !state.isOf(Blocks.EMERALD_ORE) && !state.isOf(Blocks.LAPIS_ORE) && !state.isOf(Blocks.REDSTONE_ORE) && !state.isOf(Blocks.NETHER_QUARTZ_ORE) && !state.isOf(Blocks.NETHER_GOLD_ORE) && !state.isOf(Blocks.COPPER_ORE) && super.isSuitableFor(state);
+        return !state.isIn(BlockTags.COAL_ORES) && !state.isIn(BlockTags.GOLD_ORES) && !state.isIn(BlockTags.IRON_ORES) && !state.isIn(BlockTags.LAPIS_ORES) && !state.isIn(BlockTags.COPPER_ORES) && !state.isIn(BlockTags.DIAMOND_ORES) && !state.isIn(BlockTags.EMERALD_ORES) && !state.isIn(BlockTags.REDSTONE_ORES) && super.isSuitableFor(state);
     }
 }

@@ -49,6 +49,8 @@ public class AppleEntity extends HostileEntity {
         .add(EntityAttributes.GENERIC_MAX_HEALTH, 20)
         .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25D)
         .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 10.0D)
-        .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 5);
+        .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3.0);
     }
+
+    
 }
