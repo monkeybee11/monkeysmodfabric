@@ -7,9 +7,11 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.CropBlock;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.EntityTypeTags;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.ActionResult;
@@ -81,6 +83,18 @@ public class Coconut_crop extends CropBlock {
             world.setBlockState(pos, state.with(AGE, 0));
         }
         return ActionResult.SUCCESS;
+    }
+
+    @Override
+    public void onProjectileHit(World world, BlockState state, BlockHitResult hit, ProjectileEntity projectile) {
+        BlockPos blockPos = hit.getBlockPos();
+            if (getAge(state) >= 2) {
+                if (!world.isClient && projectile.canModifyAt(world, blockPos) && projectile.getType().isIn(EntityTypeTags.IMPACT_PROJECTILES)) {
+                    ItemStack stack = new ItemStack(Monkeysmod.COCONUT_SHELL, world.random.nextInt(6) + 1);
+                    dropStack(world, blockPos, stack);
+                    world.setBlockState(blockPos, state.with(AGE, 0));
+                }
+            }
     }
     
     @Override

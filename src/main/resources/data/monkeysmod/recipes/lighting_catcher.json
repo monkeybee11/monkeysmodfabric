@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " TC",
+        "TCT",
+        "CT "
+    ],
+    "key": {
+        "T": {
+            "item": "minecraft:tripwire_hook"
+    },
+        "C": {
+            "item": "minecraft:copper_ingot"
+        }
+    },
+    "result": {
+        "item": "monkeysmod:lighting_catcher", "count": 1 }
+}

@@ -65,6 +65,7 @@ import name.modid.items.Raw_meat;
 import name.modid.items.William_tell_apple;
 import name.modid.items.Cheese_slice;
 import name.modid.items.Grated_cheese;
+import name.modid.items.Lighting_bottle;
 import name.modid.items.Meat_mats;
 import name.modid.items.Mince_pie_item;
 import name.modid.items.Raw_pizza;
@@ -87,6 +88,7 @@ import name.modid.monsters.custom.PizzaBoss;
 import name.modid.monsters.custom.SantaPigEntity;
 import name.modid.monsters.custom.TapeEntity;
 import name.modid.world.gen.ModEntityGeneration;
+import name.modid.block.Lighting_catcher;
 
 public class Monkeysmod implements ModInitializer {
 
@@ -131,7 +133,7 @@ public class Monkeysmod implements ModInitializer {
 	public static final Meat_crop MEAT_CROP = new Meat_crop(FabricBlockSettings.copyOf(Blocks.WHEAT).nonOpaque());
 	public static final Pineapple_crop PINEAPPLE_CROP = new Pineapple_crop(FabricBlockSettings.copyOf(Blocks.WHEAT).nonOpaque());
 	public static final Mince_pie_crop MINCE_PIE_CROP = new Mince_pie_crop(FabricBlockSettings.copyOf(Blocks.WHEAT));
-	public static final Coconut_crop COCONUT_CROP = new Coconut_crop(FabricBlockSettings.copyOf(Blocks.WHEAT).nonOpaque());
+	public static final Coconut_crop COCONUT_CROP = new Coconut_crop(FabricBlockSettings.create().strength(1.0f));
 	public static final Appleblock APPLEBLOCK = new Appleblock(FabricBlockSettings.create().strength(1.0f));
 	public static final Wheelie_bin WHEELIE_BIN = new Wheelie_bin(FabricBlockSettings.create().strength(1.0f));
 	public static final Pizza_shield PIZZA_SHIELD = new Pizza_shield(new FabricItemSettings().maxDamage(336));
@@ -144,6 +146,9 @@ public class Monkeysmod implements ModInitializer {
 	public static final Block BLOCK_CHARCOAL = new Block(FabricBlockSettings.create());
 	public static final Tape TAPE_ITEM = new Tape(new FabricItemSettings());
 	private static final Identifier DUGEON_CHEST_LOOT_TABLE_ID = new Identifier("minecraft", "chests/simple_dungeon");
+	public static final Lighting_catcher LIGHTING_CATCHER = new Lighting_catcher(FabricBlockSettings.create().strength(1.0f).nonOpaque());
+	public static final Lighting_bottle LIGHTING_BOTTLE = new Lighting_bottle(new FabricItemSettings(), 0, 0);
+
 
 
 	//this is my tab in the creative menu
@@ -198,6 +203,8 @@ public class Monkeysmod implements ModInitializer {
 		entries.add(BUBBLE_BOTTLE);
 		entries.add(BLOCK_CHARCOAL);
 		entries.add(TAPE_ITEM);
+		entries.add(LIGHTING_CATCHER);
+		entries.add(LIGHTING_BOTTLE);
 
 	}).build();
 
@@ -329,6 +336,9 @@ public class Monkeysmod implements ModInitializer {
 		Registry.register(Registries.BLOCK, new Identifier("monkeysmod" , "charcoal_block"), BLOCK_CHARCOAL);
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "charcoal_block"), new BlockItem(BLOCK_CHARCOAL, new FabricItemSettings()));
 		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "tape_item"), TAPE_ITEM);
+		Registry.register(Registries.BLOCK, new Identifier("monkeysmod", "lighting_catcher"), LIGHTING_CATCHER);
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "lighting_catcher"), new BlockItem(LIGHTING_CATCHER, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier("monkeysmod", "lighting_bottle"), LIGHTING_BOTTLE);
 
 		FuelRegistry.INSTANCE.add(BLOCK_CHARCOAL, 16000);
 	}

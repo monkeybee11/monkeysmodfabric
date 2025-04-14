@@ -69,6 +69,8 @@
     "item.monkeysmod.bubble_bottle": "bottled bubbles",
     "block.monkeysmod.charcoal_block": "block of charcoal",
     "entity.monkeysmod.banana_peel_entity": "banana peel",
-    "item.monkeysmod.tape_item": "tape mesher"
+    "item.monkeysmod.tape_item": "tape mesher",
+    "block.monkeysmod.lighting_catcher": "lightning catcher",
+    "item.monkeysmod.lighting_bottle": "bottle of llighting"
     
 }

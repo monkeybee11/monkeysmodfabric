@@ -89,4 +89,5 @@ public class ModEntities {
                 FabricEntityTypeBuilder.create(SpawnGroup.MISC, TapeEntity::new)
                         .dimensions(EntityDimensions.fixed(0.5f, 0.5f)).build());
 
+
 }
