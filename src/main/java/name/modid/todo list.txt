@@ -23,3 +23,5 @@ blue yetti monsters
 shark hover monsters
 
 super visor chair
+
+.\gradlew build (REMEMBER THIS FOR BUILDING THE JAR FILE open CMD in the main folder of the mod)

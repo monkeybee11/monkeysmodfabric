@@ -1,70 +1,19 @@
 {
-    "type": "minecraft:block",
-    "pools": [
-      {
-        "rolls": 1,
-        "entries": [
-          {
-            "type": "minecraft:item",
-            "name": "monkeysmod:coconut_shell",
-            "functions": [
-              {
-                "function": "minecraft:apply_bonus",
-                "enchantment": "minecraft:fortune",
-                "formula": "minecraft:uniform_bonus_count",
-                "parameters": {
-                  "bonusMultiplier": 1
-                }
-              },
-              {
-                "function": "minecraft:explosion_decay"
-              }
-            ],
-            "conditions": [
-              {
-                "condition": "minecraft:block_state_property",
-                "block": "monkeysmod:coconut_crop",
-                "properties": {
-                  "age": "8"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "rolls": 3,
-        "bonus_rolls": 0,
-        "entries": [
-          {
-            "type": "minecraft:item",
-            "name": "monkeysmod:coconut_seed",
-            "functions": [
-              {
-                "function": "minecraft:apply_bonus",
-                "enchantment": "minecraft:fortune",
-                "formula": "minecraft:binomial_with_bonus_count",
-                "parameters": {
-                  "extra": 3,
-                  "probability": 0.5714286
-                }
-              },
-              {
-                "function": "minecraft:explosion_decay"
-              }
-            ],
-            "conditions": [
-              {
-                "condition": "minecraft:block_state_property",
-                "block": "monkeysmod:coconut_crop",
-                "properties": {
-                  "age": "8"
-                }
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  }
-  
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "monkeysmod:coconut_crop"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ]
+    }
+  ]
+}

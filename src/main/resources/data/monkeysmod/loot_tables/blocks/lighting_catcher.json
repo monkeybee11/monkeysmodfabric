@@ -1,0 +1,62 @@
+{
+    "type": "minecraft:block",
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "monkeysmod:lighting_catcher"
+                }
+            ]
+        },
+        {
+            "rolls": 1,
+            "conditions": [
+                {
+                    "condition": "minecraft:block_state_property",
+                    "block": "monkeysmod:lighting_catcher",
+                    "properties": {
+                        "age": "1"
+                    }
+                }
+            ],
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:glass_bottle",
+                    "functions": [
+                        {
+                            "function": "minecraft:set_count",
+                            "count": 4
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "rolls": 1,
+            "conditions": [
+                {
+                    "condition": "minecraft:block_state_property",
+                    "block": "monkeysmod:lighting_catcher",
+                    "properties": {
+                        "age": "2"
+                    }
+                }
+            ],
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "monkeysmod:lighting_bottle",
+                    "functions": [
+                        {
+                            "function": "minecraft:set_count",
+                            "count": 4
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
